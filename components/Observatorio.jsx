@@ -22,6 +22,7 @@ import Comparar from './comparar/Comparar';
 import LogoObservatorio from './LogoObservatorio';
 import Estudos from './estudos/Estudos';
 import CorteSecao from './CorteSecao';
+import Rodape from './Rodape';
 import { carregarIGs, produtoCurto } from '@/lib/dados/ig';
 import { cadeiaBioma } from '@/lib/dados/producao';
 import Seta from './Seta';
@@ -629,16 +630,7 @@ export default function Observatorio() {
         </>
       )}
 
-      <footer className="border-t border-tema-linha bg-tema-bg px-4 py-8 text-center">
-        <nav aria-label="Páginas" className="mb-3 flex justify-center gap-6 text-[14px] text-tema-tinta lg:hidden">
-          <a href="#/" className="underline-offset-4 hover:underline">Início</a>
-          <a href="#/estudos" className="underline-offset-4 hover:underline">Estudos</a>
-        </nav>
-        <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="seta-gatilho inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-semibold text-tema-tinta transition hover:bg-tema-linha">
-          <Seta name="seta-dir" size={14} base={-90} />
-          voltar ao topo
-        </button>
-      </footer>
+      <Rodape />
     </div>
   );
 }
