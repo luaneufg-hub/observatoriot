@@ -21,6 +21,7 @@ import InovacaoTerritorio from './InovacaoTerritorio';
 import Comparar from './comparar/Comparar';
 import LogoObservatorio from './LogoObservatorio';
 import Estudos from './estudos/Estudos';
+import CorteSecao from './CorteSecao';
 import { carregarIGs, produtoCurto } from '@/lib/dados/ig';
 import { cadeiaBioma } from '@/lib/dados/producao';
 import Seta from './Seta';
@@ -623,6 +624,7 @@ export default function Observatorio() {
       <Setores lugar={mSel ? `${mSel.nome} (${mSel.uf})` : uf ? UF_BY_SIGLA[uf].nome : null} />
 
       {/* Comparar territórios */}
+      <CorteSecao para="comparar" rotulo="Comparar" />
       <Comparar base={base} />
         </>
       )}

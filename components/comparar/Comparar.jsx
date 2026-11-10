@@ -564,7 +564,7 @@ export default function Comparar({ base }) {
   };
 
   return (
-    <section id="comparar" aria-labelledby="comparar-titulo" className="bg-tema-bg px-4 py-16 sm:px-8 lg:px-12 lg:py-24 print:bg-white print:p-0">
+    <section id="comparar" aria-labelledby="comparar-titulo" className="bg-tema-bg px-4 pb-16 pt-12 sm:px-8 lg:px-12 lg:pb-24 lg:pt-16 print:bg-white print:p-0">
       <div className="mx-auto max-w-[1240px]">
         <div className="text-center print:hidden">
           <h2 id="comparar-titulo" className="inline-flex items-center gap-3 font-display text-[clamp(40px,5.4vw,72px)] font-extrabold leading-none tracking-[-0.02em] text-tema-tinta">

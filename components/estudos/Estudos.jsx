@@ -6,6 +6,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { geoIdentity, geoPath } from 'd3-geo';
 import ImpulsionarNegocios from './ImpulsionarNegocios';
 import { geo } from '@/lib/geo';
+import { asset } from '@/lib/asset';
+import CorteSecao from '../CorteSecao';
 
 /* capa: mapa do Brasil em verde com barras, enquanto a colagem do protótipo não chega */
 function MapaCapa() {
@@ -98,11 +100,42 @@ export default function Estudos({ base }) {
 
       <ImpulsionarNegocios base={base} />
 
-      <EmPreparacao
-        id="exportador"
-        titulo="Potencial exportador das MPEs para a UE"
-        texto="Por produto e por estado: o que os pequenos negócios exportam para a União Europeia e onde estão as oportunidades com o acordo Mercosul–UE. Entra assim que chegar a base do estudo especial do Observatório."
-      />
+      <CorteSecao para="exportador" rotulo="Potencial exportador das MPEs para a UE" />
+      <section id="exportador" aria-labelledby="exportador-titulo" className="bg-tema-bg px-4 pb-14 pt-12 sm:px-8 lg:px-12 lg:pb-20 lg:pt-16">
+        <div className="mx-auto max-w-[1240px]">
+          <h2 id="exportador-titulo" className="font-display text-[clamp(36px,4.6vw,64px)] font-extrabold leading-[0.98] tracking-[-0.02em] text-tema-tinta">
+            Potencial exportador
+            <br />
+            das MPEs para a UE
+          </h2>
+          {/* bandeiras da UE e do Mercosul "apoiadas" no painel, como no protótipo */}
+          <div className="relative mt-6">
+            <img
+              src={asset('estudos/bandeiras-ue-mercosul.webp')}
+              alt="Bandeiras da União Europeia e do Mercosul lado a lado"
+              className="relative z-10 mx-auto -mb-[12%] block h-auto w-[min(440px,72%)] select-none sm:-mb-[9%]"
+              loading="lazy"
+            />
+            <div className="rounded-[40px] bg-tema-card px-6 pb-10 pt-[16%] shadow-card sm:px-10 sm:pt-[12%] lg:pt-[110px]">
+              <div className="flex gap-8 border-b border-tema-linha" role="presentation">
+                {['Por produto', 'Por estado'].map((t, i) => (
+                  <span key={t} className={`-mb-px border-b-2 pb-3 font-display text-[17px] font-extrabold ${i === 0 ? 'border-tema-tinta text-tema-tinta' : 'border-transparent text-tema-suave'}`}>
+                    {t}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-8 rounded-[28px] border-2 border-dashed border-tema-linha p-8 text-[15px] leading-relaxed text-tema-suave">
+                <span className="mb-2 inline-block rounded-full bg-tema-linha px-3 py-1 text-[12px] font-bold uppercase tracking-[0.08em] text-tema-tinta">em preparação</span>
+                <p className="max-w-[70ch]">
+                  O que os pequenos negócios exportam para a União Europeia, por produto e por estado, e onde estão as oportunidades com o acordo Mercosul–UE. Entra assim
+                  que chegar a base do estudo especial do Observatório.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <CorteSecao para="materiais" rotulo="Infográficos e materiais" />
       <EmPreparacao
         id="materiais"
         titulo="Infográficos e materiais"
