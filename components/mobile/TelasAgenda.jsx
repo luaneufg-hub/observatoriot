@@ -3,7 +3,8 @@
 import { useMemo, useState } from 'react';
 import Icon from '../Icon';
 import { OBJETIVOS, SECOES_BRIEFING, montarBriefing, briefingEmTexto, municipioMaisProximo } from '@/lib/dados/mobile';
-import { CAT_BY_ID, chaveDia, localTexto, noDia, nomeMes, periodo, proximos, tomCat } from '@/lib/dados/calendario';
+import { CAT_BY_ID, chaveDia, localTexto, noDia, nomeMes, periodo, proximos, tomCat, linkGoogleAgenda } from '@/lib/dados/calendario';
+import BotaoGoogleAgenda from '../calendario/BotaoGoogleAgenda';
 import { UF_BY_SIGLA } from '@/lib/dados/ufs';
 import { Acordeao, Botao, Chips, Folha, TituloTela, useGuardado } from './ui';
 
@@ -112,6 +113,7 @@ export function TelaCalendario({ ctx }) {
               <dt className="text-tema-suave">Público</dt>
               <dd className="text-tema-tinta">{ev.publico || '—'}</dd>
             </dl>
+            <BotaoGoogleAgenda href={linkGoogleAgenda(ev)} className="w-full" />
             <Botao tipo={marcados.includes(ev.id) ? 'secundario' : 'lima'} className="w-full" onClick={() => alternarMarca(ev.id)}>
               <Icon name="marcado" size={18} /> {marcados.includes(ev.id) ? 'Marcado: vou participar' : 'Vou participar'}
             </Botao>

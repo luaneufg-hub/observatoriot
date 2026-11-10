@@ -4,7 +4,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Icon from '../Icon';
 import Seta from '../Seta';
-import { CATEGORIAS_CAL, CAT_BY_ID, EVENTOS, FONTE_CALENDARIO, doMes, noDia, nomeMes, periodo, localTexto, proximos, tomCat } from '@/lib/dados/calendario';
+import { CATEGORIAS_CAL, CAT_BY_ID, EVENTOS, FONTE_CALENDARIO, doMes, noDia, nomeMes, periodo, localTexto, proximos, tomCat, linkGoogleAgenda } from '@/lib/dados/calendario';
+import BotaoGoogleAgenda from './BotaoGoogleAgenda';
 
 const SEMANA = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SÁB', 'DOM'];
 const ANO = 2026;
@@ -210,6 +211,7 @@ function Detalhe({ ev, onFechar }) {
             <dt className="text-tema-suave">Público</dt>
             <dd className="text-tema-tinta">{ev.publico || '—'}</dd>
           </dl>
+          <BotaoGoogleAgenda href={linkGoogleAgenda(ev)} className="mt-7" />
         </>
       )}
     </Modal>
