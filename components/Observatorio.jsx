@@ -23,6 +23,7 @@ import LogoObservatorio from './LogoObservatorio';
 import Estudos from './estudos/Estudos';
 import CorteSecao from './CorteSecao';
 import Rodape from './Rodape';
+import SeletorTema from './SeletorTema';
 import { carregarIGs, produtoCurto } from '@/lib/dados/ig';
 import { cadeiaBioma } from '@/lib/dados/producao';
 import Seta from './Seta';
@@ -332,13 +333,7 @@ export default function Observatorio() {
             </a>
           ))}
         </nav>
-        <div role="radiogroup" aria-label="Tema" className="ml-auto inline-flex flex-none rounded-full border border-white/70 p-[3px] lg:ml-0">
-          {TEMAS.map((t) => (
-            <button key={t.id} role="radio" aria-checked={tema === t.id} onClick={() => setTema(t.id)} className={`rounded-full px-2 py-1 text-[11px] font-medium sm:px-2.5 sm:text-[12px] ${tema === t.id ? 'bg-white text-[var(--tema-nav)]' : 'text-white'}`}>
-              {t.rotulo}
-            </button>
-          ))}
-        </div>
+        <SeletorTema tema={tema} onMudar={setTema} className="ml-auto lg:ml-0" />
         <a href="#" className="hidden whitespace-nowrap rounded-full bg-lima px-3.5 py-1.5 text-[14px] font-bold text-navy-2 sm:block">
           login/ inscreva-se
         </a>
