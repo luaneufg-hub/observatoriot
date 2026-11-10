@@ -278,25 +278,6 @@ body {
   outline: 2px solid #2a4fda;
   outline-offset: 3px;
 }
-/* Setores: o mesmo deslize, mantendo a subida do cartão e o pulo do ícone (o ícone usa currentColor e fica branco) */
-.setor-chip.deslize {
-  transition:
-    color 0.5s ease,
-    transform 0.3s ease-out,
-    box-shadow 0.3s ease-out,
-    background-color 0.3s ease-out;
-}
-.setor-chip.deslize:hover,
-.setor-chip.deslize:focus-visible {
-  transform: translateY(-4px);
-}
-.setor-chip.deslize:hover .setor-chip__aviso,
-.setor-chip.deslize:focus-visible .setor-chip__aviso {
-  color: #f49ac1;
-}
-.setor-chip.deslize:active {
-  transform: translateY(-2px) scale(0.99);
-}
 @media (prefers-reduced-motion: reduce) {
   .deslize,
   .deslize::before {
