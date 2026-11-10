@@ -203,7 +203,7 @@ export default function Setores({ lugar }) {
                 onClick={() => setSetor(s.id)}
                 onMouseEnter={() => setHover(s.id)}
                 onMouseLeave={() => setHover(null)}
-                className={`setor-chip flex aspect-[1/1.05] w-[104px] flex-none flex-col sm:w-auto items-center justify-center gap-3 rounded-[20px] text-[15px] font-medium text-[#050506] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_30px_-16px_rgba(7,5,104,.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul ${
+                className={`setor-chip deslize flex aspect-[1/1.05] w-[104px] flex-none flex-col sm:w-auto items-center justify-center gap-3 rounded-[20px] text-[15px] font-medium text-[#050506] transition duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_14px_30px_-16px_rgba(7,5,104,.4)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-azul ${
                   sel ? 'bg-[#B7E055] shadow-[0_14px_30px_-18px_rgba(7,5,104,.45)]' : 'bg-[#EFEEEA] hover:bg-[#E7E5DF]'
                 }`}
               >
@@ -213,7 +213,7 @@ export default function Setores({ lugar }) {
                 <span className="text-center leading-tight">
                   {s.rotulo}
                   {(dados.find((d) => d.id === s.id)?.pendente ?? s.pendente) && (
-                    <span className="block text-[10px] font-semibold uppercase tracking-wider text-[#B5174C]">
+                    <span className="setor-chip__aviso block text-[10px] font-semibold uppercase tracking-wider text-[#B5174C] transition-colors duration-500">
                       {dados.find((d) => d.id === s.id)?.motivo?.rotulo || 'sem dado nesta aba'}
                     </span>
                   )}
