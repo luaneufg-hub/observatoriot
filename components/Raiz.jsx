@@ -23,7 +23,9 @@ function modoAtual() {
   if (h.startsWith('#/m')) return 'mobile';
   // em telas pequenas (celular, painel estreito) abre a versão mobile; a versão avançada continua acessível
   const inicio = h === '' || h === '#' || h === '#/';
-  if (ABRIR_MOBILE_EM_TELA_PEQUENA && inicio && window.innerWidth < 768 && !escolheuAvancada()) return 'mobile';
+  // link próprio da versão mobile: <html data-versao="mobile"> abre o app em qualquer tela
+  const linkMobile = document.documentElement.dataset.versao === 'mobile';
+  if (inicio && (linkMobile || (ABRIR_MOBILE_EM_TELA_PEQUENA && window.innerWidth < 768)) && !escolheuAvancada()) return 'mobile';
   return 'desktop';
 }
 
