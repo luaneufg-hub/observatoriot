@@ -18,10 +18,10 @@ import { TelaCalendario, TelaBriefing } from './TelasAgenda';
 
 const ABAS = [
   { id: 'inicio', rotulo: 'Início', icone: 'inicio' },
-  { id: 'calendario', rotulo: 'Calendário', icone: 'calendario' },
   { id: 'territorio', rotulo: 'Territórios', icone: 'pino' },
   { id: 'relatorios', rotulo: 'Relatórios', icone: 'grafico' },
   { id: 'comparar', rotulo: 'Comparar', icone: 'trocar' },
+  { id: 'calendario', rotulo: 'Calendário', icone: 'calendario' },
 ];
 const TEMAS = [
   { id: 'claro', rotulo: 'Claro' },

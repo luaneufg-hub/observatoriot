@@ -7,7 +7,7 @@ import { asset } from '@/lib/asset';
 import { UF_BY_SIGLA, REGIOES } from '@/lib/dados/ufs';
 import { cartoes, caixasMPE, heroi, temas, trilha, GENTILICO, perfil, curto, GRUPOS_CARTAO, serieAberturas } from '@/lib/dados/mobile';
 import { pctTxt } from '@/lib/dados/comparar';
-import { Acordeao, Botao, CartaoNumero, Chamada, Chips, Folha, TituloTela } from './ui';
+import { Acordeao, Botao, CartaoNumero, Chamada, Chips, Folha, TituloTela, corKpi } from './ui';
 import MapaMini from './MapaMini';
 import { PROGRAMAS } from '@/lib/dados/sebraeTerritorio';
 import { doTerritorio, proximos } from '@/lib/dados/calendario';
@@ -188,9 +188,9 @@ export function TelaMPE({ ctx }) {
       <TituloTela>Micro e pequenas empresas</TituloTela>
       <div className="mb-4 grid grid-cols-3 gap-2">
         {caixas.map((c, i) => (
-          <div key={c.rotulo} className="flex min-w-0 flex-col rounded-[20px] p-3 text-tema-tinta" style={{ background: `var(--tom-${['verde', 'lima', 'lavanda'][i]})` }}>
-            <span className="font-display text-[24px] font-semibold leading-none tracking-tight tabular-nums">{c.valor}</span>
-            <span className="mt-1.5 text-[11.5px] leading-snug text-tema-suave">{c.rotulo}</span>
+          <div key={c.rotulo} className="flex min-w-0 flex-col rounded-[20px] p-3 text-[#050506]" style={{ background: corKpi(['lima', 'lavanda', 'cinza'][i]) }}>
+            <span className="font-display text-[24px] font-extrabold leading-none tracking-tight tabular-nums">{c.valor}</span>
+            <span className="mt-1.5 text-[11.5px] font-medium leading-snug">{c.rotulo}</span>
           </div>
         ))}
       </div>
@@ -258,11 +258,11 @@ export function TelaTerritorio({ ctx }) {
   const u = t.uf ? UF_BY_SIGLA[t.uf] : null;
   const info = [];
   if (u && !t.mun) {
-    info.push({ id: 'pop', tom: 'lima', curtoRot: 'Habitantes', icone: 'pessoas', valor: `${u.pop.toLocaleString('pt-BR')} mi`, rotulo: 'habitantes', fonte: 'IBGE · Censo 2022', sobre: 'População residente no Censo Demográfico 2022, em milhões.' });
-    info.push({ id: 'gent', tom: 'lavanda', curtoRot: 'Gentílico', apoio: `capital: ${u.capital}`, icone: 'localizacao', valor: GENTILICO[t.uf][0].toUpperCase() + GENTILICO[t.uf].slice(1), rotulo: 'gentílico', fonte: 'IBGE', sobre: `Quem nasce em ${u.nome} é ${GENTILICO[t.uf]}. Região ${REGIOES[u.regiao]}.` });
+    info.push({ id: 'pop', tom: 'lavanda', curtoRot: 'Habitantes', icone: 'pessoas', valor: `${u.pop.toLocaleString('pt-BR')} mi`, rotulo: 'habitantes', fonte: 'IBGE · Censo 2022', sobre: 'População residente no Censo Demográfico 2022, em milhões.' });
+    info.push({ id: 'gent', tom: 'lima', curtoRot: 'Gentílico', apoio: `capital: ${u.capital}`, icone: 'localizacao', valor: GENTILICO[t.uf][0].toUpperCase() + GENTILICO[t.uf].slice(1), rotulo: 'gentílico', fonte: 'IBGE', sobre: `Quem nasce em ${u.nome} é ${GENTILICO[t.uf]}. Região ${REGIOES[u.regiao]}.` });
   }
   if (t.mun) info.push({ id: 'uf', tom: 'lavanda', curtoRot: 'Estado', icone: 'localizacao', valor: t.uf, rotulo: `${UF_BY_SIGLA[t.uf].nome}${t.mun.cap ? ' · capital' : ''}`, fonte: 'IBGE', sobre: `Município de ${UF_BY_SIGLA[t.uf].nome}, região ${REGIOES[UF_BY_SIGLA[t.uf].regiao]}.` });
-  if (p.bioma) info.push({ id: 'bioma', tom: 'verde', curtoRot: 'Bioma', icone: 'bioma', valor: p.bioma, rotulo: 'bioma predominante', fonte: 'IBGE · Biomas', sobre: 'Bioma com a maior parte do território.' });
+  if (p.bioma) info.push({ id: 'bioma', tom: 'cinza', curtoRot: 'Bioma', icone: 'bioma', valor: p.bioma, rotulo: 'bioma predominante', fonte: 'IBGE · Biomas', sobre: 'Bioma com a maior parte do território.' });
   const cs = cartoes(p, t);
   info.push(cs.find((c) => c.id === 'remuneracao'), cs.find((c) => c.id === 'vinculos'), cs.find((c) => c.id === 'ativas'));
   const pinos = proximos(99, doTerritorio(agenda, t)).filter((e) => e.mun);
@@ -285,9 +285,9 @@ export function TelaTerritorio({ ctx }) {
         <Acordeao titulo="Micro e pequenas empresas" icone="empresas" aberto={aberto === 'mpe'} onAlternar={() => alt('mpe')}>
           <div className="grid grid-cols-3 gap-2">
             {caixasMPE(p, t).map((c, i) => (
-              <div key={c.rotulo} className="rounded-[20px] p-3 text-tema-tinta" style={{ background: `var(--tom-${['verde', 'lima', 'lavanda'][i]})` }}>
-                <span className="block font-display text-[22px] font-semibold leading-none tracking-tight">{c.valor}</span>
-                <span className="mt-1 block text-[11.5px] leading-snug text-tema-suave">{c.rotulo}</span>
+              <div key={c.rotulo} className="rounded-[20px] p-3 text-[#050506]" style={{ background: corKpi(['lima', 'lavanda', 'cinza'][i]) }}>
+                <span className="block font-display text-[22px] font-extrabold leading-none tracking-tight">{c.valor}</span>
+                <span className="mt-1 block text-[11.5px] font-medium leading-snug">{c.rotulo}</span>
               </div>
             ))}
           </div>
@@ -395,7 +395,7 @@ export function TelaComparar({ ctx }) {
   const [det, setDet] = useState(null);
   const lado = (i) => (
     <button type="button" onClick={() => abrirBusca((nt) => setComparar(i === 0 ? [nt, b] : [a, nt]))} className="flex w-full items-center gap-2 rounded-full bg-tema-card px-4 py-3 text-left text-[14px] text-tema-tinta">
-      <Icon name="pino" size={18} className={i === 0 ? 'text-[#36BF76]' : 'text-[#A093D1]'} />
+      <span aria-hidden="true" className="h-3.5 w-3.5 flex-none rounded-full" style={{ background: corKpi(i === 0 ? 'lima' : 'lavanda') }} />
       <span className="min-w-0 flex-1 truncate">{(i === 0 ? pa : pb).nome}</span>
       <span className="text-[12px] text-tema-suave">trocar</span>
     </button>
@@ -417,9 +417,9 @@ export function TelaComparar({ ctx }) {
             <p className="mb-1.5 text-center text-[12.5px] font-semibold text-tema-suave">{c.rotulo}</p>
             <div className="grid grid-cols-2 gap-3">
               {[c, cb[i]].map((x, j) => (
-                <button key={j} type="button" onClick={() => setDet(x)} className="rounded-[20px] p-3 text-center" style={{ background: `var(--tom-${j === 0 ? 'verde' : 'lavanda'})` }}>
-                  <span className="block font-display text-[22px] font-semibold leading-tight tracking-tight text-tema-tinta tabular-nums">{x.valor}</span>
-                  {x.apoio && <span className="mt-0.5 block text-[11px] text-tema-suave">{x.apoio}</span>}
+                <button key={j} type="button" onClick={() => setDet(x)} className="rounded-[20px] p-3 text-center text-[#050506]" style={{ background: corKpi(j === 0 ? 'lima' : 'lavanda') }}>
+                  <span className="block font-display text-[22px] font-extrabold leading-tight tracking-tight tabular-nums">{x.valor}</span>
+                  {x.apoio && <span className="mt-0.5 block text-[11px] font-medium">{x.apoio}</span>}
                 </button>
               ))}
             </div>

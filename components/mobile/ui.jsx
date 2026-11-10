@@ -51,23 +51,27 @@ export function Folha({ aberta, onFechar, titulo, children, alta = false, rotulo
   );
 }
 
-/** Caixa numérica limpa: tom pastel do kit, número escuro, rótulo curto; o resto fica no detalhe */
+// Cores das caixas de indicadores: as mesmas do desktop (Micro e Pequenas Empresas), com texto escuro em todos os temas
+export const COR_KPI = { lima: '#D9ED86', lavanda: '#A093D1', cinza: '#B2AEA6' };
+export const corKpi = (tom) => COR_KPI[tom] || COR_KPI.cinza;
+
+/** Caixa numérica: cor do kit (como no desktop), número e rótulo curto; o resto fica no detalhe */
 export function CartaoNumero({ c, onClick }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="flex min-h-[132px] min-w-0 flex-col items-start rounded-[24px] p-4 text-left transition active:scale-[0.98]"
-      style={{ background: `var(--tom-${c.tom || 'branco'})` }}
+      className="group flex min-h-[132px] min-w-0 flex-col items-start rounded-[22px] p-4 text-left text-[#050506] transition active:scale-[0.98]"
+      style={{ background: corKpi(c.tom) }}
     >
       <span className="flex w-full items-start justify-between gap-2">
-        <span className="text-[13px] leading-snug text-tema-suave">{c.curtoRot || c.rotulo}</span>
-        <span className="grid h-8 w-8 flex-none place-items-center rounded-[10px] bg-tema-card text-tema-tinta [[data-theme=navy]_&]:bg-white/10 [[data-theme=escuro]_&]:bg-white/10">
-          <Icon name={c.icone} size={17} />
+        <span className="text-[13px] font-medium leading-snug">{c.curtoRot || c.rotulo}</span>
+        <span className="grid h-9 w-9 flex-none place-items-center rounded-full bg-white/45">
+          <Icon name={c.icone} size={18} />
         </span>
       </span>
-      <span className="mt-auto pt-3 font-display text-[26px] font-semibold leading-none tracking-tight text-tema-tinta tabular-nums">{c.valor}</span>
-      {c.apoio && <span className="mt-1 text-[11.5px] text-tema-suave">{c.apoio}</span>}
+      <span className="mt-auto pt-3 font-display text-[28px] font-extrabold leading-none tracking-tight tabular-nums">{c.valor}</span>
+      {c.apoio && <span className="mt-1 text-[11.5px] font-medium">{c.apoio}</span>}
     </button>
   );
 }
