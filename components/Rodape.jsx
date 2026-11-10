@@ -133,15 +133,15 @@ export default function Rodape() {
 
       <div className="mx-auto max-w-[1240px] px-4 pb-8 pt-12 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-[1.1fr_1fr_1fr_1.3fr] lg:gap-8">
-          {/* Logos */}
+          {/* Logos: a Datawheel (tecnologia) primeiro e o Sebrae por último, por precedência */}
           <div className="col-span-2 flex flex-col items-start gap-7 lg:col-span-1">
-            <a href="https://sebrae.com.br/" target="_blank" rel="noopener noreferrer" className="block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lima">
-              <span className="mb-2 block text-[12px] text-[#c3c5ec]">Desenvolvido por</span>
-              <LogoSebrae className="h-12 w-auto" title="Sebrae (abre em nova aba)" />
-            </a>
             <a href="https://www.datawheel.us/" target="_blank" rel="noopener noreferrer" className="block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lima">
               <span className="mb-2 block text-[12px] text-[#c3c5ec]">Tecnologia</span>
               <LogoDatawheel className="h-8 w-auto" title="Datawheel (abre em nova aba)" />
+            </a>
+            <a href="https://sebrae.com.br/" target="_blank" rel="noopener noreferrer" className="block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lima">
+              <span className="mb-2 block text-[12px] text-[#c3c5ec]">Desenvolvido por</span>
+              <LogoSebrae className="h-12 w-auto" title="Sebrae (abre em nova aba)" />
             </a>
           </div>
 

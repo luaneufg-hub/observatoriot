@@ -327,10 +327,11 @@ export default function Observatorio() {
             ['Início', '#/', 'inicio'],
             ['Estudos', '#/estudos', 'estudos'],
             ['Calendário', '#/calendario', 'calendario'],
-            ['Documentação', '#', null],
+            ['Documentação', 'https://observatorio.sebrae.com.br/about/fontes-de-dados', null],
           ].map(([t, h, p]) => (
-            <a key={t} href={h} aria-current={p === pagina ? 'page' : undefined} className={`hover:opacity-100 hover:underline ${p === pagina ? 'font-semibold underline decoration-lima decoration-2 underline-offset-[6px]' : 'opacity-90'}`}>
+            <a key={t} href={h} {...(h.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} aria-current={p === pagina ? 'page' : undefined} className={`hover:opacity-100 hover:underline ${p === pagina ? 'font-semibold underline decoration-lima decoration-2 underline-offset-[6px]' : 'opacity-90'}`}>
               {t}
+              {h.startsWith('http') && <span className="sr-only"> (abre em nova aba)</span>}
             </a>
           ))}
         </nav>
