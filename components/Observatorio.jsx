@@ -298,7 +298,7 @@ export default function Observatorio() {
       const top = Object.entries(cont).sort((a, b) => b[1] - a[1])[0];
       return { valor: BIOMA_BY_ID[top[0]].nome, selo: `${top[1]} de 27 UFs`, apoio: 'Bioma mais frequente' };
     }
-    if (ind.brasil != null) return { valor: formatar(ind, ind.brasil), selo: ind.seloBrasil?.[0] ?? 'Brasil', apoio: ind.seloBrasil?.[1] ?? 'total nacional' };
+    if (ind.brasil != null) return { valor: formatar(ind, ind.brasil, { curto: ind.unidade === 'n' }), selo: ind.seloBrasil?.[0] ?? 'Brasil', apoio: ind.seloBrasil?.[1] ?? 'total nacional' };
     const vals = [...valoresUF.values()];
     const soma = vals.reduce((a, b) => a + b, 0);
     return ind.unidade === 'n'
