@@ -93,8 +93,8 @@ export default function AppMobile() {
   const abaAtiva = tela === 'mpe' ? 'inicio' : tela;
 
   return (
-    <div data-theme={tema} data-app="mobile" className="min-h-screen bg-[#0c0b3a] font-body sm:py-6">
-      <div className="relative mx-auto flex min-h-screen max-w-[440px] flex-col bg-tema-bg sm:min-h-[calc(100vh-48px)] sm:rounded-[36px] sm:[clip-path:inset(0_round_36px)] sm:shadow-flutuante">
+    <div data-theme={tema} data-app="mobile" className="min-h-screen bg-[#0c0b3a] font-body sm:py-6 [&_*]:[-webkit-tap-highlight-color:transparent]">
+      <div className="relative mx-auto flex min-h-screen max-w-[440px] flex-col bg-[var(--app-bg)] sm:min-h-[calc(100vh-48px)] sm:rounded-[36px] sm:[clip-path:inset(0_round_36px)] sm:shadow-flutuante">
         {!entrou ? (
           <Entrada
             onEntrar={() => {
@@ -108,28 +108,25 @@ export default function AppMobile() {
           />
         ) : (
           <>
-            <header className="nao-imprimir sticky top-0 z-30 bg-[var(--tema-nav)] px-4 pb-3 pt-3 text-white">
-              <div className="flex h-11 items-center gap-2">
-                <button type="button" onClick={() => setMenu(true)} aria-label="Abrir menu" className="grid h-11 w-11 place-items-center rounded-full hover:bg-white/10">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
-                    <path d="M4 7h16M4 12h16M4 17h10" />
-                  </svg>
-                </button>
-                <button type="button" onClick={() => irPara('inicio')} className="mx-auto flex min-w-0 items-center" aria-label="Observatório Setorial Territorial · início">
-                  <LogoObservatorio className="block h-[11px] w-auto max-w-full" />
-                </button>
-                <button type="button" onClick={() => setNotif(true)} aria-label="Notificações (2 novas)" className="relative grid h-11 w-11 place-items-center rounded-full hover:bg-white/10">
-                  <Icon name="notificacao" size={22} />
-                  <span aria-hidden="true" className="absolute right-2.5 top-2.5 h-2.5 w-2.5 rounded-full border-2 border-[var(--tema-nav)] bg-lima" />
-                </button>
-              </div>
-              <button type="button" onClick={() => abrirBusca((nt) => setT(nt))} className="mt-2 flex h-12 w-full items-center gap-3 rounded-full bg-white px-4 text-left text-[14px] text-[#5f5f64]">
-                <Icon name="busca" size={20} className="text-navy-2" />
-                <span className="truncate">escolha um estado ou município</span>
+            <header className="nao-imprimir sticky top-0 z-30 flex h-16 items-center gap-2 bg-[var(--app-bg)]/90 px-4 backdrop-blur">
+              <button type="button" onClick={() => setMenu(true)} aria-label="Abrir menu" className="grid h-11 w-11 flex-none place-items-center rounded-full bg-navy text-white [[data-theme=navy]_&]:bg-lima [[data-theme=navy]_&]:text-navy [[data-theme=escuro]_&]:bg-lima [[data-theme=escuro]_&]:text-[#141414]">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+                  <path d="M5 8h14M5 12h14M5 16h9" />
+                </svg>
+              </button>
+              <button type="button" onClick={() => irPara('inicio')} className="mx-auto flex min-w-0 items-center text-tema-tinta" aria-label="Observatório Setorial Territorial · início">
+                <LogoObservatorio className="block h-[10px] w-auto max-w-full" />
+              </button>
+              <button type="button" onClick={() => abrirBusca((nt) => setT(nt))} aria-label="Buscar estado ou município" className="grid h-11 w-11 flex-none place-items-center rounded-full bg-tema-card text-tema-tinta">
+                <Icon name="busca" size={20} />
+              </button>
+              <button type="button" onClick={() => setNotif(true)} aria-label="Notificações (2 novas)" className="relative grid h-11 w-11 flex-none place-items-center rounded-full bg-tema-card text-tema-tinta">
+                <Icon name="notificacao" size={20} />
+                <span aria-hidden="true" className="absolute right-2.5 top-2.5 h-2.5 w-2.5 rounded-full border-2 border-tema-card bg-[#D81E5B]" />
               </button>
             </header>
 
-            <main ref={conteudo} className="flex-1 px-5 pb-28 pt-5">
+            <main ref={conteudo} className="flex-1 px-5 pb-6 pt-3">
               {!p ? (
                 <p role="status" className="py-20 text-center text-[14px] text-tema-suave">
                   Carregando os dados do território…
@@ -149,18 +146,26 @@ export default function AppMobile() {
               )}
             </main>
 
-            <nav aria-label="Seções" className="nao-imprimir sticky bottom-0 z-30 mt-auto grid grid-cols-5 border-t border-tema-linha bg-tema-card px-1 pb-[max(8px,env(safe-area-inset-bottom))] pt-1.5">
-              {ABAS.map((a) => {
-                const on = a.id === abaAtiva;
-                return (
-                  <button key={a.id} type="button" onClick={() => irPara(a.id)} aria-current={on ? 'page' : undefined} className={`flex flex-col items-center gap-0.5 rounded-2xl py-1.5 text-[10.5px] ${on ? 'font-bold text-tema-tinta [--icon-2:#C9DF60]' : 'text-tema-suave'}`}>
-                    <span className={`grid h-8 w-12 place-items-center rounded-full ${on ? 'bg-lima/50 [[data-theme=navy]_&]:bg-lima/20 [[data-theme=escuro]_&]:bg-lima/20' : ''}`}>
+            <nav aria-label="Seções" className="nao-imprimir pointer-events-none sticky bottom-0 z-30 mt-auto flex justify-center px-3 pb-[max(14px,env(safe-area-inset-bottom))]">
+              <div className="pointer-events-auto flex items-center gap-1 rounded-full bg-tema-card p-1.5 shadow-flutuante">
+                {ABAS.map((a) => {
+                  const on = a.id === abaAtiva;
+                  return (
+                    <button
+                      key={a.id}
+                      type="button"
+                      onClick={() => irPara(a.id)}
+                      aria-current={on ? 'page' : undefined}
+                      aria-label={a.rotulo}
+                      title={a.rotulo}
+                      className={`flex h-12 items-center justify-center gap-2 rounded-full transition-all ${on ? 'bg-navy px-4 text-[13px] font-semibold text-white [--icon-2:#C9DF60] [[data-theme=navy]_&]:bg-lima [[data-theme=navy]_&]:text-navy [[data-theme=navy]_&]:[--icon-2:#070568] [[data-theme=escuro]_&]:bg-lima [[data-theme=escuro]_&]:text-[#141414] [[data-theme=escuro]_&]:[--icon-2:#141414]' : 'w-12 text-tema-suave hover:bg-tema-linha'}`}
+                    >
                       <Icon name={a.icone} size={22} />
-                    </span>
-                    {a.rotulo}
-                  </button>
-                );
-              })}
+                      {on && <span aria-hidden="true">{a.rotulo}</span>}
+                    </button>
+                  );
+                })}
+              </div>
             </nav>
 
             {menu && <Menu tema={tema} setTema={setTema} irPara={irPara} onFechar={() => setMenu(false)} onSair={() => { try { window.sessionStorage.removeItem('obs-mobile-entrou'); } catch { /* */ } setEntrou(false); setMenu(false); }} />}

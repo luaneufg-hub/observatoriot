@@ -314,3 +314,29 @@ body {
   [data-app='mobile'] .briefing-doc { box-shadow: none !important; border: 0 !important; }
   [data-app='mobile'] { background: #fff !important; }
 }
+
+/* Tons das caixas da versão mobile: pastéis das cores do kit (lima, lavanda, verde, areia) */
+[data-app='mobile'][data-theme='claro'] {
+  --tom-lima: #edf3cf;
+  --tom-lavanda: #e7e3f4;
+  --tom-verde: #dcede0;
+  --tom-areia: #ece6dc;
+  --tom-branco: #fffefc;
+  --app-bg: #f1eee8;
+}
+[data-app='mobile'][data-theme='navy'] {
+  --tom-lima: rgba(201, 223, 96, 0.16);
+  --tom-lavanda: rgba(160, 147, 209, 0.22);
+  --tom-verde: rgba(96, 180, 102, 0.2);
+  --tom-areia: rgba(245, 241, 235, 0.08);
+  --tom-branco: rgba(245, 241, 235, 0.06);
+  --app-bg: #070568;
+}
+[data-app='mobile'][data-theme='escuro'] {
+  --tom-lima: rgba(201, 223, 96, 0.13);
+  --tom-lavanda: rgba(160, 147, 209, 0.16);
+  --tom-verde: rgba(96, 180, 102, 0.15);
+  --tom-areia: rgba(245, 241, 235, 0.06);
+  --tom-branco: #232325;
+  --app-bg: #141414;
+}

@@ -51,26 +51,58 @@ export function Folha({ aberta, onFechar, titulo, children, alta = false, rotulo
   );
 }
 
-/** Caixa numérica (Início, Território, Comparar) */
-export function CartaoNumero({ c, onClick, compacto = false }) {
+/** Caixa numérica limpa: tom pastel do kit, número escuro, rótulo curto; o resto fica no detalhe */
+export function CartaoNumero({ c, onClick }) {
   return (
     <button
       type="button"
       onClick={onClick}
-      className="group flex min-w-0 flex-col items-start rounded-[22px] border border-tema-linha bg-tema-card p-4 text-left shadow-card transition active:scale-[0.98]"
+      className="flex min-h-[132px] min-w-0 flex-col items-start rounded-[24px] p-4 text-left transition active:scale-[0.98]"
+      style={{ background: `var(--tom-${c.tom || 'branco'})` }}
     >
-      <span className="flex w-full items-center justify-between">
-        <span className="grid h-8 w-8 place-items-center rounded-controle bg-off text-navy-2 [[data-theme=escuro]_&]:bg-white/5 [[data-theme=escuro]_&]:text-off [[data-theme=navy]_&]:bg-white/10 [[data-theme=navy]_&]:text-off">
-          <Icon name={c.icone} size={18} />
-        </span>
-        <span className="text-tema-apagado" aria-hidden="true">
-          <Icon name="info" size={16} />
+      <span className="flex w-full items-start justify-between gap-2">
+        <span className="text-[13px] leading-snug text-tema-suave">{c.curtoRot || c.rotulo}</span>
+        <span className="grid h-8 w-8 flex-none place-items-center rounded-[10px] bg-tema-card text-tema-tinta [[data-theme=navy]_&]:bg-white/10 [[data-theme=escuro]_&]:bg-white/10">
+          <Icon name={c.icone} size={17} />
         </span>
       </span>
-      <span className={`mt-3 font-display font-extrabold leading-none tracking-tight text-tema-numero tabular-nums ${compacto ? 'text-[22px]' : 'text-[26px]'}`}>{c.valor}</span>
-      <span className="mt-1.5 text-[13px] leading-snug text-tema-tinta">{c.rotulo}</span>
-      {c.apoio && <span className="mt-1 text-[12px] font-semibold text-tema-suave">{c.apoio}</span>}
-      <span className="mt-auto pt-2 text-[11px] text-tema-apagado">{c.fonte}</span>
+      <span className="mt-auto pt-3 font-display text-[26px] font-semibold leading-none tracking-tight text-tema-tinta tabular-nums">{c.valor}</span>
+      {c.apoio && <span className="mt-1 text-[11.5px] text-tema-suave">{c.apoio}</span>}
+    </button>
+  );
+}
+
+/** Chips de filtro (pílulas), ativo escuro */
+export function Chips({ itens, ativo, onEscolher, rotulo }) {
+  return (
+    <div role="tablist" aria-label={rotulo} className="sem-barra -mx-5 flex gap-2 overflow-x-auto px-5 pb-1">
+      {itens.map((i) => {
+        const on = i.id === ativo;
+        return (
+          <button
+            key={i.id}
+            role="tab"
+            aria-selected={on}
+            onClick={() => onEscolher(i.id)}
+            className={`flex-none rounded-full px-4 py-2.5 text-[13.5px] transition ${on ? 'bg-navy font-semibold text-white [[data-theme=navy]_&]:bg-lima [[data-theme=navy]_&]:text-navy [[data-theme=escuro]_&]:bg-lima [[data-theme=escuro]_&]:text-[#141414]' : 'bg-tema-card text-tema-tinta'}`}
+          >
+            {i.rotulo}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+/** Faixa de chamada (lima) com botão redondo */
+export function Chamada({ icone = 'documento2', texto, onClick }) {
+  return (
+    <button type="button" onClick={onClick} className="flex w-full items-center gap-3 rounded-[24px] bg-lima px-4 py-3.5 text-left text-navy">
+      <Icon name={icone} size={22} />
+      <span className="flex-1 text-[14px] leading-snug">{texto}</span>
+      <span className="grid h-10 w-10 flex-none place-items-center rounded-full bg-navy text-white">
+        <Icon name="seta-dir" size={18} />
+      </span>
     </button>
   );
 }
@@ -83,11 +115,11 @@ export function Acordeao({ titulo, icone, aberto, onAlternar, children }) {
       <h3>
         <button type="button" aria-expanded={aberto} aria-controls={id} onClick={onAlternar} className="seta-gatilho flex w-full items-center gap-3 py-4 text-left">
           {icone && (
-            <span className="grid h-9 w-9 flex-none place-items-center rounded-full bg-tema-linha text-tema-tinta">
+            <span className="grid h-9 w-9 flex-none place-items-center rounded-[12px] bg-tema-card text-tema-tinta">
               <Icon name={icone} size={18} />
             </span>
           )}
-          <span className="flex-1 font-display text-[16px] font-bold text-tema-tinta">{titulo}</span>
+          <span className="flex-1 font-display text-[16px] font-semibold text-tema-tinta">{titulo}</span>
           <Seta name="chevron" size={18} aberto={aberto} giro={180} className="text-tema-tinta" />
         </button>
       </h3>
@@ -114,7 +146,7 @@ export function Botao({ children, onClick, tipo = 'primario', className = '', ..
 export function TituloTela({ children, apoio }) {
   return (
     <div className="mb-4">
-      <h1 className="font-display text-[30px] font-extrabold leading-[1.05] tracking-tight text-tema-tinta">{children}</h1>
+      <h1 className="font-display text-[28px] font-semibold leading-[1.1] tracking-tight text-tema-tinta">{children}</h1>
       {apoio && <p className="mt-1 text-[13px] text-tema-suave">{apoio}</p>}
     </div>
   );
