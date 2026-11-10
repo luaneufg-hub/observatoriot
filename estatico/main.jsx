@@ -11,6 +11,6 @@ import '@fontsource/lato/latin-700.css';
 import '@fontsource/lato/latin-900.css';
 import '../app/globals.css';
 import { createRoot } from 'react-dom/client';
-import Observatorio from '@/components/Observatorio';
+import Raiz from '@/components/Raiz';
 
-createRoot(document.getElementById('raiz')).render(<Observatorio />);
+createRoot(document.getElementById('raiz')).render(<Raiz />);

@@ -296,3 +296,21 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .convite-rolar { animation: none; }
 }
+
+/* ---------------------------------------------------------------------
+   Versão mobile (auxiliar): folhas, gaveta e impressão do briefing
+   --------------------------------------------------------------------- */
+@keyframes sobe { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes gaveta { from { transform: translateX(-24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.anima-sobe { animation: sobe 0.28s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.anima-gaveta { animation: gaveta 0.24s cubic-bezier(0.2, 0.8, 0.2, 1); }
+@media (prefers-reduced-motion: reduce) {
+  .anima-sobe, .anima-gaveta { animation: none; }
+}
+.sem-barra { scrollbar-width: none; }
+.sem-barra::-webkit-scrollbar { display: none; }
+@media print {
+  [data-app='mobile'] .nao-imprimir { display: none !important; }
+  [data-app='mobile'] .briefing-doc { box-shadow: none !important; border: 0 !important; }
+  [data-app='mobile'] { background: #fff !important; }
+}

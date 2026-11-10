@@ -1,5 +1,5 @@
-import Observatorio from '@/components/Observatorio';
+import Raiz from '@/components/Raiz';
 
 export default function Page() {
-  return <Observatorio />;
+  return <Raiz />;
 }

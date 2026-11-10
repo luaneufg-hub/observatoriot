@@ -197,6 +197,10 @@ export default function Rodape() {
           </div>
 
           <div className="flex flex-col items-start gap-3 lg:items-end">
+            {/* só em telas pequenas: volta para a versão mobile (o desktop não muda) */}
+            <a href="#/m" className="inline-flex items-center gap-2 rounded-full bg-lima px-4 py-2 text-[13px] font-semibold text-navy md:hidden">
+              voltar à versão mobile
+            </a>
             <button
               type="button"
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

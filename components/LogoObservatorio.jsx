@@ -42,7 +42,7 @@ const D = [
 export default function LogoObservatorio({ className, titulo = 'Observatório Setorial Territorial' }) {
   return (
     <svg viewBox="0 0 419.26 19.88" className={className} fill="currentColor" preserveAspectRatio="xMinYMid meet" role="img" aria-label={titulo}>
-      {D.map((d, i) => (
+      {D.filter((d) => d.startsWith('M')).map((d, i) => (
         <path key={i} d={d} />
       ))}
     </svg>
