@@ -38,9 +38,9 @@ function MapaCapa() {
   );
 }
 
-function EmPreparacao({ id, titulo, texto, faixa }) {
+function EmPreparacao({ id, titulo, texto }) {
   return (
-    <section id={id} aria-labelledby={`${id}-titulo`} className={`px-4 py-14 sm:px-8 lg:px-12 lg:py-20 ${faixa ? 'faixa mt-4 bg-tema-bg' : 'bg-[var(--tema-faixa)]'}`}>
+    <section id={id} aria-labelledby={`${id}-titulo`} className="bg-tema-bg px-4 py-14 sm:px-8 lg:px-12 lg:py-20">
       <div className="mx-auto max-w-[1240px]">
         <h2 id={`${id}-titulo`} className="font-display text-[clamp(36px,4.6vw,60px)] font-extrabold leading-[0.98] tracking-[-0.02em] text-tema-tinta [text-wrap:balance]">
           {titulo}
@@ -58,7 +58,7 @@ export default function Estudos({ base }) {
   return (
     <>
       {/* capa */}
-      <section aria-labelledby="estudos-titulo" className="faixa-base overflow-hidden bg-lima px-4 py-14 sm:px-8 lg:px-12 lg:py-20">
+      <section aria-labelledby="estudos-titulo" className="overflow-hidden bg-lima px-4 py-14 sm:px-8 lg:px-12 lg:py-20">
         <div className="mx-auto grid max-w-[1240px] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <div>
             <p className="font-display text-[clamp(18px,1.8vw,24px)] font-extrabold text-navy">Estudos de</p>
@@ -99,7 +99,6 @@ export default function Estudos({ base }) {
       <ImpulsionarNegocios base={base} />
 
       <EmPreparacao
-        faixa
         id="exportador"
         titulo="Potencial exportador das MPEs para a UE"
         texto="Por produto e por estado: o que os pequenos negócios exportam para a União Europeia e onde estão as oportunidades com o acordo Mercosul–UE. Entra assim que chegar a base do estudo especial do Observatório."

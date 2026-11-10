@@ -564,7 +564,7 @@ export default function Comparar({ base }) {
   };
 
   return (
-    <section id="comparar" aria-labelledby="comparar-titulo" className="bg-[var(--tema-faixa)] px-4 py-16 sm:px-8 lg:px-12 lg:py-24 print:bg-white print:p-0">
+    <section id="comparar" aria-labelledby="comparar-titulo" className="bg-tema-bg px-4 py-16 sm:px-8 lg:px-12 lg:py-24 print:bg-white print:p-0">
       <div className="mx-auto max-w-[1240px]">
         <div className="text-center print:hidden">
           <h2 id="comparar-titulo" className="inline-flex items-center gap-3 font-display text-[clamp(40px,5.4vw,72px)] font-extrabold leading-none tracking-[-0.02em] text-tema-tinta">
@@ -582,7 +582,7 @@ export default function Comparar({ base }) {
         {aberto && (
           <div id="comparar-corpo">
             {/* filtros */}
-            <div className="mt-10 rounded-[28px] bg-tema-bg p-6 sm:p-10 print:hidden">
+            <div className="mt-10 rounded-[28px] bg-tema-card p-6 shadow-card sm:p-10 print:hidden">
               <div className="grid gap-10 md:grid-cols-2 md:gap-14">
                 {lados.map((l, i) => (
                   <Regiao key={i} n={i + 1} lado={l} base={base} onMudar={(v) => mudar(i, v)} />

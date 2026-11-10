@@ -15,7 +15,6 @@
   --tema-suave: #5f5f64;
   --tema-apagado: #66666b;
   --tema-sobre-painel: #0a2474;
-  --tema-faixa: #fffefc;
   --tema-destaque: #c9df60;
   --tema-sobre-destaque: #0a2474;
   --tema-numero: #2a4fda;
@@ -28,7 +27,6 @@
   --tema-bg: #070568;
   --tema-painel: #60b466;
   --tema-sobre-painel: #070568;
-  --tema-faixa: #0c0b3a;
   --tema-card: #070568;
   --tema-linha: rgba(245, 241, 235, 0.16);
   --tema-tinta: #f5f1eb;
@@ -46,7 +44,6 @@
   --tema-bg: #141414;
   --tema-painel: #141414;
   --tema-sobre-painel: #f5f1eb;
-  --tema-faixa: #1e1e20;
   --tema-card: #232325;
   --tema-linha: rgba(245, 241, 235, 0.1);
   --tema-tinta: #f5f1eb;
@@ -285,38 +282,5 @@ body {
   .deslize,
   .deslize::before {
     transition: none;
-  }
-}
-
-/* Faixas das seções: blocos de cantos arredondados que alternam com o fundo da página */
-.faixa {
-  border-radius: 32px;
-}
-.faixa-base {
-  border-bottom-left-radius: 32px;
-  border-bottom-right-radius: 32px;
-}
-.faixa-topo {
-  border-top-left-radius: 32px;
-  border-top-right-radius: 32px;
-}
-@media (min-width: 1024px) {
-  .faixa {
-    border-radius: 56px;
-  }
-  .faixa-base {
-    border-bottom-left-radius: 56px;
-    border-bottom-right-radius: 56px;
-  }
-  .faixa-topo {
-    border-top-left-radius: 56px;
-    border-top-right-radius: 56px;
-  }
-}
-@media print {
-  .faixa,
-  .faixa-base,
-  .faixa-topo {
-    border-radius: 0;
   }
 }
