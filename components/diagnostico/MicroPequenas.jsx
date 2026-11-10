@@ -192,7 +192,7 @@ export default function MicroPequenas({ base, uf, mun, onBrasil, onUF, onMunicip
   const rotuloEscopo = (e) => (e === 'MUN' ? mun?.nome : mun ? `${uf} (estado)` : nomeUF);
 
   return (
-    <section id="micro-e-pequenas" aria-labelledby="mpe-titulo" className="bg-tema-bg px-4 py-16 sm:px-8 lg:px-12 lg:py-24">
+    <section id="micro-e-pequenas" aria-labelledby="mpe-titulo" className="bg-[var(--tema-faixa)] px-4 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div className="mx-auto max-w-[1240px]">
         <div className="grid gap-6 lg:grid-cols-[1.15fr_1fr] lg:items-end">
           <h2 id="mpe-titulo" className="font-display text-[clamp(40px,5.4vw,76px)] font-extrabold leading-[0.98] tracking-[-0.02em] text-tema-tinta [text-wrap:balance]">

@@ -174,7 +174,7 @@ export default function Setores({ lugar }) {
   const resumo = resumoFaixa(abaId, periodo?.id, setor);
 
   return (
-    <section id="setores" aria-labelledby="setores-titulo" className="bg-tema-bg px-4 pb-20 pt-6 sm:px-8 lg:px-12">
+    <section id="setores" aria-labelledby="setores-titulo" className="faixa bg-tema-bg px-4 pb-20 pt-16 sm:px-8 lg:px-12 lg:pt-20">
       <div className="mx-auto max-w-[1240px]">
         <header className="mx-auto max-w-[760px] text-center">
           <h2 id="setores-titulo" className="font-display text-[clamp(34px,4vw,52px)] font-extrabold tracking-[-0.02em] text-tema-tinta">

@@ -323,7 +323,7 @@ export default function ImpulsionarNegocios({ base }) {
   };
 
   return (
-    <section id="impulsionar" aria-labelledby="impulsionar-titulo" className="bg-tema-bg px-4 py-16 sm:px-8 lg:px-12 lg:py-24">
+    <section id="impulsionar" aria-labelledby="impulsionar-titulo" className="faixa mt-4 bg-tema-bg px-4 py-16 sm:px-8 lg:px-12 lg:py-24">
       <div className="mx-auto max-w-[1240px]">
         <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)_auto] lg:items-start">
           <h2 id="impulsionar-titulo" className="font-display text-[clamp(40px,5vw,68px)] font-extrabold leading-[0.98] tracking-[-0.02em] text-tema-tinta">

@@ -312,7 +312,7 @@ export default function Observatorio() {
 
   /* ---------------------------------------------------- render */
   return (
-    <div data-theme={tema} className="flex min-h-screen flex-col bg-tema-bg">
+    <div data-theme={tema} className="flex min-h-screen flex-col bg-[var(--tema-faixa)]">
       {/* Cabeçalho do site (demonstração) */}
       <header className="flex h-16 flex-none items-center gap-3 bg-[var(--tema-nav)] px-4 text-white sm:gap-6 sm:px-6">
         <a href="#/" className="flex min-w-0 items-center" aria-label="Observatório Setorial Territorial · início">
@@ -346,7 +346,7 @@ export default function Observatorio() {
         <Estudos base={base} />
       ) : (
         <>
-      <div id="territorio" className="grid grid-cols-1 lg:h-[calc(100vh-64px)] lg:min-h-[640px] lg:grid-cols-[440px_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)]">
+      <div id="territorio" className="faixa-base grid grid-cols-1 overflow-hidden bg-tema-bg lg:h-[calc(100vh-64px)] lg:min-h-[640px] lg:grid-cols-[440px_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)]">
         {/* ====================================================== BARRA LATERAL */}
         <aside className="rolagem relative order-2 min-h-0 overflow-y-auto bg-tema-painel px-6 pb-8 pt-7 lg:order-1">
           <div className="flex items-start justify-between gap-3">
@@ -627,7 +627,7 @@ export default function Observatorio() {
         </>
       )}
 
-      <footer className="border-t border-tema-linha bg-tema-bg px-4 py-8 text-center">
+      <footer className="faixa-topo mt-4 bg-tema-bg px-4 py-10 text-center">
         <nav aria-label="Páginas" className="mb-3 flex justify-center gap-6 text-[14px] text-tema-tinta lg:hidden">
           <a href="#/" className="underline-offset-4 hover:underline">Início</a>
           <a href="#/estudos" className="underline-offset-4 hover:underline">Estudos</a>
