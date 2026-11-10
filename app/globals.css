@@ -1,0 +1,286 @@
+@import 'maplibre-gl/dist/maplibre-gl.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------
+   Temas do UI Kit (CORES - INTERFACE LIGHT / NAVY BLUE / FULLDARK)
+   --------------------------------------------------------------------- */
+[data-theme='claro'] {
+  --tema-bg: #f5f1eb;
+  --tema-painel: #f5f1eb;
+  --tema-card: #fffefc;
+  --tema-linha: #ece6dc;
+  --tema-tinta: #0a2474;
+  --tema-suave: #5f5f64;
+  --tema-apagado: #66666b;
+  --tema-sobre-painel: #0a2474;
+  --tema-destaque: #c9df60;
+  --tema-sobre-destaque: #0a2474;
+  --tema-numero: #2a4fda;
+  --tema-barra: #2a4fda;
+  --tema-mapa: #e4eee0;
+  --tema-nav: #0a2474;
+  color-scheme: light;
+}
+[data-theme='navy'] {
+  --tema-bg: #070568;
+  --tema-painel: #60b466;
+  --tema-sobre-painel: #070568;
+  --tema-card: #070568;
+  --tema-linha: rgba(245, 241, 235, 0.16);
+  --tema-tinta: #f5f1eb;
+  --tema-suave: #c3c5ec;
+  --tema-apagado: #8f92cf;
+  --tema-destaque: #c9df60;
+  --tema-sobre-destaque: #070568;
+  --tema-numero: #c9df60;
+  --tema-barra: #c9df60;
+  --tema-mapa: #dce5dc;
+  --tema-nav: #0c0b3a;
+  color-scheme: dark;
+}
+[data-theme='escuro'] {
+  --tema-bg: #141414;
+  --tema-painel: #141414;
+  --tema-sobre-painel: #f5f1eb;
+  --tema-card: #232325;
+  --tema-linha: rgba(245, 241, 235, 0.1);
+  --tema-tinta: #f5f1eb;
+  --tema-suave: #b3b1ab;
+  --tema-apagado: #8b8d86;
+  --tema-destaque: #c9df60;
+  --tema-sobre-destaque: #141414;
+  --tema-numero: #60b466;
+  --tema-barra: #60b466;
+  --tema-mapa: #e4eee0;
+  --tema-nav: #141414;
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  @apply font-body antialiased;
+  background: var(--tema-bg, #f5f1eb);
+}
+:focus-visible {
+  outline: 2px solid #2a4fda;
+  outline-offset: 2px;
+}
+
+/* Ícones Iconly: "border" por padrão, duotone quando --icon-2 é definido (estados ativos) */
+.iconly {
+  flex: none;
+  fill: currentColor;
+}
+.iconly__2 {
+  fill: var(--icon-2, currentColor);
+}
+
+/* Barras de rolagem discretas */
+.rolagem {
+  scrollbar-width: thin;
+  scrollbar-color: var(--tema-linha) transparent;
+}
+
+/* MapLibre: controles nativos no estilo do kit */
+.maplibregl-ctrl-group {
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(7, 5, 104, 0.14) !important;
+  border: 0 !important;
+}
+.maplibregl-ctrl-group button {
+  width: 36px !important;
+  height: 36px !important;
+}
+.maplibregl-ctrl-group button + button {
+  border-top: 1px solid #f1ece4 !important;
+}
+.maplibregl-ctrl-scale {
+  border-color: #2b2b30 !important;
+  color: #2b2b30 !important;
+  background: rgba(255, 255, 255, 0.8) !important;
+  font: 500 10px Lato, Inter, sans-serif !important;
+}
+.maplibregl-ctrl-attrib {
+  font: 400 10px Lato, Inter, sans-serif;
+}
+
+/* Modos de visualização (controle junto ao zoom) */
+.maplibregl-ctrl-group.ctrl-modo {
+  overflow: visible;
+}
+.ctrl-modo__btn {
+  position: relative;
+  display: grid !important;
+  place-items: center;
+  color: #0a2474;
+  transition: background-color 0.2s, color 0.2s;
+}
+.ctrl-modo__btn:first-child {
+  border-radius: 12px 12px 0 0;
+}
+.ctrl-modo__btn:last-child {
+  border-radius: 0 0 12px 12px;
+}
+.ctrl-modo__btn:hover {
+  --icon-2: #2a4fda;
+}
+.ctrl-modo__btn[aria-pressed='true'] {
+  background: #0a2474 !important;
+  color: #c9df60;
+  --icon-2: #f5f1eb;
+}
+.ctrl-modo__btn::after {
+  content: attr(data-rotulo);
+  position: absolute;
+  right: calc(100% + 10px);
+  top: 50%;
+  transform: translate(4px, -50%);
+  white-space: nowrap;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #0a2474;
+  color: #fff;
+  font: 600 11.5px/1 aktiv-grotesk, Inter, sans-serif;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.ctrl-modo__btn:hover::after,
+.ctrl-modo__btn:focus-visible::after {
+  opacity: 1;
+  transform: translate(0, -50%);
+}
+
+/* Prancha (Destaques): grade sobre o papel */
+.prancha-grade {
+  background-image: linear-gradient(rgba(60, 58, 52, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(60, 58, 52, 0.08) 1px, transparent 1px);
+  background-size: 58px 58px;
+}
+
+@keyframes entra {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+.anima-entra {
+  animation: entra 0.18s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anima-entra {
+    animation: none;
+  }
+}
+
+/* Diagnóstico — microinterações */
+.globo-meridianos { transform-box: fill-box; transform-origin: center; }
+.group:hover .globo-meridianos { animation: globo-gira 1.8s ease-in-out infinite; }
+@keyframes globo-gira { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(0.12); } }
+@keyframes setor-pula { 0%, 100% { transform: translateY(0) rotate(0); } 35% { transform: translateY(-5px) rotate(-6deg); } 70% { transform: translateY(0) rotate(3deg); } }
+.setor-chip:hover .setor-chip__ic, .setor-chip[aria-pressed='true'] .setor-chip__ic { animation: setor-pula 0.6s ease-out; }
+@keyframes troca-entra { from { opacity: 0; transform: translateY(10px) scale(0.96); } to { opacity: 1; transform: none; } }
+.troca-entra { animation: troca-entra 0.45s cubic-bezier(.2,.8,.2,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .globo-meridianos, .setor-chip__ic, .troca-entra { animation: none !important; }
+}
+
+/* Setas: giro com ease-in-out (mesma interação do site luanedouradodesign.com.br) */
+.seta {
+  display: inline-flex;
+  flex: none;
+  transform: rotate(var(--seta-base, 0deg));
+  transition: transform 0.6s ease-in-out;
+}
+.seta-gatilho:hover .seta,
+.seta-gatilho:focus-visible .seta,
+.trilha > :hover + .seta,
+.trilha > li:hover + li .seta {
+  transform: rotate(calc(var(--seta-base, 0deg) + var(--seta-giro, 360deg)));
+}
+@media (prefers-reduced-motion: reduce) {
+  .seta { transition: none; }
+}
+
+/* Comparar · "Gerar relatório": imprime só o relatório, com todas as abas */
+@media print {
+  *:has(#comparar) > :not(:has(#comparar)):not(#comparar) {
+    display: none !important;
+  }
+  #relatorio [data-painel] {
+    display: block !important;
+    break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+/* Comparar · painel de fundo verde (#36BF76): texto, ícones e linhas em navy */
+.painel-claro .text-white,
+.painel-claro [class*='text-white/'] {
+  color: #080568 !important;
+}
+.painel-claro [class*='border-white/'] {
+  border-color: rgba(8, 5, 104, 0.25) !important;
+}
+.painel-claro .bg-white\/5,
+.painel-claro .bg-white\/10 {
+  background-color: rgba(8, 5, 104, 0.08) !important;
+}
+
+/* Microinteração "deslize" (Rounded Slide Button, hover.dev): um círculo escuro entra pelo canto
+   inferior direito e cobre o cartão; o texto passa a branco (Impulsionar Negócios) */
+[data-theme='claro'],
+[data-theme='escuro'] {
+  --deslize-cor: #070568;
+}
+[data-theme='navy'] {
+  --deslize-cor: #232122;
+}
+.deslize {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  transition:
+    color 0.5s ease,
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+.deslize::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 100%;
+  background: var(--deslize-cor);
+  transform: translate(150%, 150%) scale(2.5);
+  transition: transform 0.9s ease;
+}
+.deslize:hover,
+.deslize:focus-visible {
+  color: #fff;
+  transform: scale(1.01);
+}
+.deslize:hover::before,
+.deslize:focus-visible::before {
+  transform: translate(0, 0) scale(2.5);
+}
+.deslize:active {
+  transform: scale(0.99);
+}
+.deslize:focus-visible {
+  outline: 2px solid #2a4fda;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .deslize,
+  .deslize::before {
+    transition: none;
+  }
+}

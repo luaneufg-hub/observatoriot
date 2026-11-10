@@ -1,0 +1,201 @@
+{
+ "consulta": "RF · Establishments · Municipality × Company Size Sebrae · Registration Status = Ativa · porte EPP/ME/MEI",
+ "atualizadoEm": "2026-11-09",
+ "municipios": 5570,
+ "totalBrasil": 24981908,
+ "foraDasUFs": {
+  "exterior": 4343,
+  "naoInformado": 506
+ },
+ "uf": {
+  "RO": {
+   "epp": 12129,
+   "me": 56993,
+   "mei": 87525,
+   "capital": 48187,
+   "total": 156647
+  },
+  "AC": {
+   "epp": 3648,
+   "me": 19785,
+   "mei": 24696,
+   "capital": 29956,
+   "total": 48129
+  },
+  "AM": {
+   "epp": 29978,
+   "me": 95445,
+   "mei": 136269,
+   "capital": 204326,
+   "total": 261692
+  },
+  "RR": {
+   "epp": 3863,
+   "me": 16413,
+   "mei": 25578,
+   "capital": 38509,
+   "total": 45854
+  },
+  "PA": {
+   "epp": 49241,
+   "me": 176922,
+   "mei": 245414,
+   "capital": 118296,
+   "total": 471577
+  },
+  "AP": {
+   "epp": 5100,
+   "me": 19138,
+   "mei": 21662,
+   "capital": 32891,
+   "total": 45900
+  },
+  "TO": {
+   "epp": 12890,
+   "me": 54621,
+   "mei": 93808,
+   "capital": 55795,
+   "total": 161319
+  },
+  "MA": {
+   "epp": 26516,
+   "me": 150177,
+   "mei": 155212,
+   "capital": 107207,
+   "total": 331905
+  },
+  "PI": {
+   "epp": 16272,
+   "me": 89185,
+   "mei": 104236,
+   "capital": 92475,
+   "total": 209693
+  },
+  "CE": {
+   "epp": 40231,
+   "me": 272442,
+   "mei": 374547,
+   "capital": 320671,
+   "total": 687220
+  },
+  "RN": {
+   "epp": 18167,
+   "me": 96414,
+   "mei": 163739,
+   "capital": 101256,
+   "total": 278320
+  },
+  "PB": {
+   "epp": 19407,
+   "me": 109801,
+   "mei": 181719,
+   "capital": 117257,
+   "total": 310927
+  },
+  "PE": {
+   "epp": 48773,
+   "me": 223773,
+   "mei": 397198,
+   "capital": 189514,
+   "total": 669744
+  },
+  "AL": {
+   "epp": 15363,
+   "me": 71511,
+   "mei": 125080,
+   "capital": 105194,
+   "total": 211954
+  },
+  "SE": {
+   "epp": 10381,
+   "me": 56403,
+   "mei": 91371,
+   "capital": 78050,
+   "total": 158155
+  },
+  "BA": {
+   "epp": 61464,
+   "me": 453622,
+   "mei": 638160,
+   "capital": 310336,
+   "total": 1153246
+  },
+  "MG": {
+   "epp": 157116,
+   "me": 1010632,
+   "mei": 1487000,
+   "capital": 473224,
+   "total": 2654748
+  },
+  "ES": {
+   "epp": 36859,
+   "me": 178525,
+   "mei": 348534,
+   "capital": 68379,
+   "total": 563918
+  },
+  "RJ": {
+   "epp": 135941,
+   "me": 628323,
+   "mei": 1318481,
+   "capital": 937705,
+   "total": 2082745
+  },
+  "SP": {
+   "epp": 638041,
+   "me": 2774313,
+   "mei": 3974026,
+   "capital": 2467694,
+   "total": 7386380
+  },
+  "PR": {
+   "epp": 111854,
+   "me": 750239,
+   "mei": 976325,
+   "capital": 438507,
+   "total": 1838418
+  },
+  "SC": {
+   "epp": 110196,
+   "me": 521464,
+   "mei": 768398,
+   "capital": 143126,
+   "total": 1400058
+  },
+  "RS": {
+   "epp": 130916,
+   "me": 607548,
+   "mei": 834793,
+   "capital": 255485,
+   "total": 1573257
+  },
+  "MS": {
+   "epp": 28911,
+   "me": 125414,
+   "mei": 192058,
+   "capital": 144514,
+   "total": 346383
+  },
+  "MT": {
+   "epp": 53912,
+   "me": 185492,
+   "mei": 285006,
+   "capital": 119356,
+   "total": 524410
+  },
+  "GO": {
+   "epp": 60432,
+   "me": 361604,
+   "mei": 551289,
+   "capital": 301986,
+   "total": 973325
+  },
+  "DF": {
+   "epp": 39415,
+   "me": 182198,
+   "mei": 214371,
+   "capital": 435984,
+   "total": 435984
+  }
+ }
+}

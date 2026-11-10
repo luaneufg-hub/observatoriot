@@ -1,0 +1,144 @@
+/* =====================================================================
+   Caixa de destaque do estado (estilo_de_destaque.svg)
+   ===================================================================== */
+.cx {
+  --cx-h: 34px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 8px;
+  background: #eff3ee;
+  overflow: hidden;
+  text-align: left;
+  color: #0d0d0d;
+}
+.cx__cab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--cx-h);
+  background: var(--cx-cab);
+  border-radius: 8px;
+  color: #fff;
+}
+.cx__quadro {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: calc(var(--cx-h) * 1.05);
+  height: 100%;
+  background: var(--cx-quadro);
+  border-radius: 8px 0 0 8px;
+}
+.cx__bandeira {
+  display: block;
+  width: 72%;
+  aspect-ratio: 3 / 2;
+}
+.cx__bandeira svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cx__titulo {
+  flex: 1;
+  min-width: 0;
+  padding: 0 10px;
+  font: 700 calc(var(--cx-h) * 0.54) / 1 proxima-nova, 'Proxima Nova', Inter, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cx__n {
+  flex: none;
+  padding-right: 10px;
+  font: 600 calc(var(--cx-h) * 0.32) aktiv-grotesk, 'Aktiv Grotesk', Inter, system-ui, sans-serif;
+  opacity: 0.9;
+}
+.cx__corpo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 9px 10px 10px;
+}
+.cx__met {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+.cx__ic {
+  flex: none;
+  margin-top: 2px;
+  color: #0d0d0d;
+}
+.cx__txt {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.cx__titulo--longo {
+  font-size: calc(var(--cx-h) * 0.4);
+}
+.cx__titulo--mlongo {
+  font-size: calc(var(--cx-h) * 0.3);
+  line-height: 1.05;
+  white-space: normal;
+}
+.cx__valor {
+  font: 700 21px/1 aktiv-grotesk, 'Aktiv Grotesk', Inter, system-ui, sans-serif;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+.cx__valor--longo {
+  font-size: 14px;
+  line-height: 1.1;
+  white-space: normal;
+}
+.cx__leg {
+  margin-top: 3px;
+  font: 400 10px/1.25 aktiv-grotesk, 'Aktiv Grotesk', Inter, system-ui, sans-serif;
+  color: #2b2b2b;
+}
+
+/* tamanho grande (painel lateral) */
+.cx--lg {
+  --cx-h: 64px;
+  border-radius: 12px;
+}
+.cx--lg .cx__cab,
+.cx--lg .cx__quadro {
+  border-radius: 12px;
+}
+.cx--lg .cx__quadro {
+  border-radius: 12px 0 0 12px;
+}
+.cx--lg .cx__corpo {
+  gap: 16px;
+  padding: 18px 20px 20px;
+}
+.cx--lg .cx__met {
+  gap: 10px;
+}
+.cx--lg .cx__valor {
+  font-size: 30px;
+}
+.cx--lg .cx__valor--longo {
+  font-size: 22px;
+}
+.cx--lg .cx__leg {
+  margin-top: 6px;
+  font-size: 13px;
+}
+
+@media (max-width: 960px) {
+  .cx--lg {
+    --cx-h: 52px;
+  }
+}
+

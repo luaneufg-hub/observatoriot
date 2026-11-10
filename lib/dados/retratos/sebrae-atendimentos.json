@@ -1,0 +1,352 @@
+{
+ "consulta": "Sebrae_Atendimento · Municipality × Year · Attendances, Total Clientes Atendidos, Clients PJ Atendidos",
+ "atualizadoEm": "2026-11-09",
+ "anos": [
+  2024,
+  2025
+ ],
+ "anoMunicipio": 2025,
+ "ordemMunicipio": [
+  "atendimentos",
+  "clientes",
+  "clientesPJ"
+ ],
+ "br": {
+  "2024": {
+   "atendimentos": 60170607,
+   "clientes": 16163434,
+   "clientesPJ": 5758625
+  },
+  "2025": {
+   "atendimentos": 65848943,
+   "clientes": 18708934,
+   "clientesPJ": 5957187
+  }
+ },
+ "uf": {
+  "RO": {
+   "2024": {
+    "atendimentos": 321970,
+    "clientes": 77996,
+    "clientesPJ": 36751
+   },
+   "2025": {
+    "atendimentos": 342588,
+    "clientes": 82678,
+    "clientesPJ": 41515
+   }
+  },
+  "AC": {
+   "2024": {
+    "atendimentos": 189328,
+    "clientes": 38200,
+    "clientesPJ": 19810
+   },
+   "2025": {
+    "atendimentos": 209299,
+    "clientes": 38477,
+    "clientesPJ": 20969
+   }
+  },
+  "AM": {
+   "2024": {
+    "atendimentos": 700172,
+    "clientes": 149480,
+    "clientesPJ": 70209
+   },
+   "2025": {
+    "atendimentos": 736305,
+    "clientes": 160240,
+    "clientesPJ": 85889
+   }
+  },
+  "RR": {
+   "2024": {
+    "atendimentos": 117725,
+    "clientes": 29573,
+    "clientesPJ": 11944
+   },
+   "2025": {
+    "atendimentos": 127627,
+    "clientes": 30164,
+    "clientesPJ": 12158
+   }
+  },
+  "PA": {
+   "2024": {
+    "atendimentos": 1200461,
+    "clientes": 212907,
+    "clientesPJ": 117342
+   },
+   "2025": {
+    "atendimentos": 1190093,
+    "clientes": 206450,
+    "clientesPJ": 122637
+   }
+  },
+  "AP": {
+   "2024": {
+    "atendimentos": 200082,
+    "clientes": 53523,
+    "clientesPJ": 17349
+   },
+   "2025": {
+    "atendimentos": 217764,
+    "clientes": 58462,
+    "clientesPJ": 19871
+   }
+  },
+  "TO": {
+   "2024": {
+    "atendimentos": 312140,
+    "clientes": 95959,
+    "clientesPJ": 48764
+   },
+   "2025": {
+    "atendimentos": 375524,
+    "clientes": 97247,
+    "clientesPJ": 58837
+   }
+  },
+  "MA": {
+   "2024": {
+    "atendimentos": 860188,
+    "clientes": 156732,
+    "clientesPJ": 80031
+   },
+   "2025": {
+    "atendimentos": 930648,
+    "clientes": 167077,
+    "clientesPJ": 91010
+   }
+  },
+  "PI": {
+   "2024": {
+    "atendimentos": 601831,
+    "clientes": 116533,
+    "clientesPJ": 53555
+   },
+   "2025": {
+    "atendimentos": 721561,
+    "clientes": 137824,
+    "clientesPJ": 62066
+   }
+  },
+  "CE": {
+   "2024": {
+    "atendimentos": 1826344,
+    "clientes": 302153,
+    "clientesPJ": 148192
+   },
+   "2025": {
+    "atendimentos": 2001303,
+    "clientes": 362725,
+    "clientesPJ": 184577
+   }
+  },
+  "RN": {
+   "2024": {
+    "atendimentos": 944822,
+    "clientes": 217659,
+    "clientesPJ": 114650
+   },
+   "2025": {
+    "atendimentos": 1089859,
+    "clientes": 233054,
+    "clientesPJ": 122529
+   }
+  },
+  "PB": {
+   "2024": {
+    "atendimentos": 802687,
+    "clientes": 177760,
+    "clientesPJ": 81856
+   },
+   "2025": {
+    "atendimentos": 954190,
+    "clientes": 186933,
+    "clientesPJ": 99438
+   }
+  },
+  "PE": {
+   "2024": {
+    "atendimentos": 2566171,
+    "clientes": 431103,
+    "clientesPJ": 204389
+   },
+   "2025": {
+    "atendimentos": 2345862,
+    "clientes": 391161,
+    "clientesPJ": 213424
+   }
+  },
+  "AL": {
+   "2024": {
+    "atendimentos": 566609,
+    "clientes": 173861,
+    "clientesPJ": 104901
+   },
+   "2025": {
+    "atendimentos": 494480,
+    "clientes": 136321,
+    "clientesPJ": 82404
+   }
+  },
+  "SE": {
+   "2024": {
+    "atendimentos": 339923,
+    "clientes": 81214,
+    "clientesPJ": 40745
+   },
+   "2025": {
+    "atendimentos": 383773,
+    "clientes": 89177,
+    "clientesPJ": 49564
+   }
+  },
+  "BA": {
+   "2024": {
+    "atendimentos": 1911775,
+    "clientes": 430611,
+    "clientesPJ": 253423
+   },
+   "2025": {
+    "atendimentos": 2229572,
+    "clientes": 418329,
+    "clientesPJ": 256688
+   }
+  },
+  "MG": {
+   "2024": {
+    "atendimentos": 4277764,
+    "clientes": 938845,
+    "clientesPJ": 555603
+   },
+   "2025": {
+    "atendimentos": 4808202,
+    "clientes": 974891,
+    "clientesPJ": 615562
+   }
+  },
+  "ES": {
+   "2024": {
+    "atendimentos": 925248,
+    "clientes": 270542,
+    "clientesPJ": 143799
+   },
+   "2025": {
+    "atendimentos": 990696,
+    "clientes": 266509,
+    "clientesPJ": 149388
+   }
+  },
+  "RJ": {
+   "2024": {
+    "atendimentos": 3713162,
+    "clientes": 786306,
+    "clientesPJ": 327401
+   },
+   "2025": {
+    "atendimentos": 4961672,
+    "clientes": 883973,
+    "clientesPJ": 348039
+   }
+  },
+  "SP": {
+   "2024": {
+    "atendimentos": 17352556,
+    "clientes": 2232264,
+    "clientesPJ": 1278664
+   },
+   "2025": {
+    "atendimentos": 16370899,
+    "clientes": 1935979,
+    "clientesPJ": 1137977
+   }
+  },
+  "PR": {
+   "2024": {
+    "atendimentos": 3580088,
+    "clientes": 855289,
+    "clientesPJ": 622200
+   },
+   "2025": {
+    "atendimentos": 4573086,
+    "clientes": 888104,
+    "clientesPJ": 680261
+   }
+  },
+  "SC": {
+   "2024": {
+    "atendimentos": 2470855,
+    "clientes": 453067,
+    "clientesPJ": 269266
+   },
+   "2025": {
+    "atendimentos": 2498285,
+    "clientes": 465395,
+    "clientesPJ": 274339
+   }
+  },
+  "RS": {
+   "2024": {
+    "atendimentos": 2201998,
+    "clientes": 579012,
+    "clientesPJ": 379671
+   },
+   "2025": {
+    "atendimentos": 2330679,
+    "clientes": 572919,
+    "clientesPJ": 375152
+   }
+  },
+  "MS": {
+   "2024": {
+    "atendimentos": 946976,
+    "clientes": 224324,
+    "clientesPJ": 120901
+   },
+   "2025": {
+    "atendimentos": 862233,
+    "clientes": 215191,
+    "clientesPJ": 132717
+   }
+  },
+  "MT": {
+   "2024": {
+    "atendimentos": 902105,
+    "clientes": 230973,
+    "clientesPJ": 132870
+   },
+   "2025": {
+    "atendimentos": 1077118,
+    "clientes": 267892,
+    "clientesPJ": 184593
+   }
+  },
+  "GO": {
+   "2024": {
+    "atendimentos": 1896644,
+    "clientes": 371047,
+    "clientesPJ": 198516
+   },
+   "2025": {
+    "atendimentos": 2230076,
+    "clientes": 422627,
+    "clientesPJ": 226221
+   }
+  },
+  "DF": {
+   "2024": {
+    "atendimentos": 750224,
+    "clientes": 212963,
+    "clientesPJ": 116152
+   },
+   "2025": {
+    "atendimentos": 804971,
+    "clientes": 202924,
+    "clientesPJ": 111144
+   }
+  }
+ }
+}

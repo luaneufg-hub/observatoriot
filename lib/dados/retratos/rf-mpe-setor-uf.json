@@ -1,0 +1,268 @@
+{
+ "consulta": "RF · Establishments · Municipality × Sector (Setor SEBRAE) · Registration Status = Ativa · porte EPP/ME/MEI",
+ "atualizadoEm": "2026-11-09",
+ "ordem": [
+  "agro",
+  "comercio",
+  "industria",
+  "construcao",
+  "servicos",
+  "admpub",
+  "outros"
+ ],
+ "municipios": 5570,
+ "br": {
+  "agro": 245807,
+  "comercio": 6667613,
+  "industria": 2169520,
+  "construcao": 1843912,
+  "servicos": 14045606,
+  "admpub": 775,
+  "outros": 13524
+ },
+ "uf": {
+  "RO": {
+   "agro": 1943,
+   "comercio": 52539,
+   "industria": 13448,
+   "construcao": 13199,
+   "servicos": 75442,
+   "admpub": 3,
+   "outros": 73
+  },
+  "AC": {
+   "agro": 493,
+   "comercio": 19739,
+   "industria": 3344,
+   "construcao": 2687,
+   "servicos": 21831,
+   "admpub": 9,
+   "outros": 26
+  },
+  "AM": {
+   "agro": 1332,
+   "comercio": 88259,
+   "industria": 18668,
+   "construcao": 13343,
+   "servicos": 140014,
+   "admpub": 13,
+   "outros": 63
+  },
+  "RR": {
+   "agro": 477,
+   "comercio": 16646,
+   "industria": 3205,
+   "construcao": 2872,
+   "servicos": 22617,
+   "admpub": 3,
+   "outros": 34
+  },
+  "PA": {
+   "agro": 4936,
+   "comercio": 187728,
+   "industria": 37133,
+   "construcao": 28025,
+   "servicos": 213605,
+   "admpub": 22,
+   "outros": 128
+  },
+  "AP": {
+   "agro": 250,
+   "comercio": 17865,
+   "industria": 3660,
+   "construcao": 2758,
+   "servicos": 21338,
+   "admpub": 7,
+   "outros": 22
+  },
+  "TO": {
+   "agro": 3055,
+   "comercio": 53144,
+   "industria": 12591,
+   "construcao": 14941,
+   "servicos": 77538,
+   "admpub": 6,
+   "outros": 44
+  },
+  "MA": {
+   "agro": 2922,
+   "comercio": 145192,
+   "industria": 21747,
+   "construcao": 18384,
+   "servicos": 143449,
+   "admpub": 28,
+   "outros": 183
+  },
+  "PI": {
+   "agro": 1606,
+   "comercio": 85891,
+   "industria": 15772,
+   "construcao": 11866,
+   "servicos": 94435,
+   "admpub": 15,
+   "outros": 108
+  },
+  "CE": {
+   "agro": 3543,
+   "comercio": 227587,
+   "industria": 60787,
+   "construcao": 34264,
+   "servicos": 360813,
+   "admpub": 32,
+   "outros": 194
+  },
+  "RN": {
+   "agro": 1809,
+   "comercio": 89000,
+   "industria": 23506,
+   "construcao": 18418,
+   "servicos": 145484,
+   "admpub": 12,
+   "outros": 91
+  },
+  "PB": {
+   "agro": 1291,
+   "comercio": 102766,
+   "industria": 24511,
+   "construcao": 24104,
+   "servicos": 158154,
+   "admpub": 9,
+   "outros": 92
+  },
+  "PE": {
+   "agro": 3231,
+   "comercio": 199480,
+   "industria": 63025,
+   "construcao": 37161,
+   "servicos": 366696,
+   "admpub": 17,
+   "outros": 134
+  },
+  "AL": {
+   "agro": 1169,
+   "comercio": 69807,
+   "industria": 16613,
+   "construcao": 11888,
+   "servicos": 112406,
+   "admpub": 8,
+   "outros": 63
+  },
+  "SE": {
+   "agro": 791,
+   "comercio": 49118,
+   "industria": 12695,
+   "construcao": 9698,
+   "servicos": 85788,
+   "admpub": 9,
+   "outros": 56
+  },
+  "BA": {
+   "agro": 8802,
+   "comercio": 394523,
+   "industria": 91224,
+   "construcao": 70809,
+   "servicos": 587624,
+   "admpub": 29,
+   "outros": 235
+  },
+  "MG": {
+   "agro": 25331,
+   "comercio": 691323,
+   "industria": 253560,
+   "construcao": 213047,
+   "servicos": 1470679,
+   "admpub": 61,
+   "outros": 747
+  },
+  "ES": {
+   "agro": 4033,
+   "comercio": 151536,
+   "industria": 56302,
+   "construcao": 47322,
+   "servicos": 304555,
+   "admpub": 11,
+   "outros": 159
+  },
+  "RJ": {
+   "agro": 5565,
+   "comercio": 467491,
+   "industria": 172371,
+   "construcao": 138920,
+   "servicos": 1297612,
+   "admpub": 20,
+   "outros": 766
+  },
+  "SP": {
+   "agro": 100552,
+   "comercio": 1763599,
+   "industria": 574617,
+   "construcao": 481358,
+   "servicos": 4460012,
+   "admpub": 256,
+   "outros": 5986
+  },
+  "PR": {
+   "agro": 16103,
+   "comercio": 462624,
+   "industria": 174065,
+   "construcao": 168154,
+   "servicos": 1016644,
+   "admpub": 11,
+   "outros": 817
+  },
+  "SC": {
+   "agro": 8331,
+   "comercio": 308240,
+   "industria": 167605,
+   "construcao": 138017,
+   "servicos": 777446,
+   "admpub": 22,
+   "outros": 397
+  },
+  "RS": {
+   "agro": 12908,
+   "comercio": 401823,
+   "industria": 159242,
+   "construcao": 151280,
+   "servicos": 845673,
+   "admpub": 29,
+   "outros": 2302
+  },
+  "MS": {
+   "agro": 7531,
+   "comercio": 98043,
+   "industria": 26838,
+   "construcao": 31900,
+   "servicos": 181935,
+   "admpub": 30,
+   "outros": 106
+  },
+  "MT": {
+   "agro": 13863,
+   "comercio": 148112,
+   "industria": 46043,
+   "construcao": 49399,
+   "servicos": 266833,
+   "admpub": 26,
+   "outros": 134
+  },
+  "GO": {
+   "agro": 12357,
+   "comercio": 278088,
+   "industria": 91177,
+   "construcao": 80981,
+   "servicos": 510365,
+   "admpub": 36,
+   "outros": 321
+  },
+  "DF": {
+   "agro": 1508,
+   "comercio": 97163,
+   "industria": 25634,
+   "construcao": 29067,
+   "servicos": 282321,
+   "admpub": 51,
+   "outros": 240
+  }
+ }
+}

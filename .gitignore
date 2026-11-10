@@ -1,0 +1,7 @@
+node_modules/
+.next/
+dist-estatico/
+.env.local
+.env*.local
+*.log
+.DS_Store

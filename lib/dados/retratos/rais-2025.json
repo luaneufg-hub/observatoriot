@@ -1,0 +1,181 @@
+{
+ "consulta": "RAIS_workers · Municipality × Aggregated Company Size × Active worker indicator · Workers, Salary Mass",
+ "ano": 2025,
+ "atualizadoEm": "2026-11-09",
+ "ordemMunicipio": [
+  "vinculosMPE",
+  "massaMPE",
+  "vinculos",
+  "massa"
+ ],
+ "br": {
+  "vinculosMPE": 23509823,
+  "massaMPE": 61964373551,
+  "vinculos": 60691770,
+  "massa": 229596704668
+ },
+ "uf": {
+  "MA": {
+   "vinculosMPE": 335706,
+   "massaMPE": 727479545,
+   "vinculos": 1073852,
+   "massa": 3396169050
+  },
+  "CE": {
+   "vinculosMPE": 651303,
+   "massaMPE": 1336935617,
+   "vinculos": 2068766,
+   "massa": 6166932609
+  },
+  "BA": {
+   "vinculosMPE": 1125002,
+   "massaMPE": 2448723845,
+   "vinculos": 3042584,
+   "massa": 9577700062
+  },
+  "RJ": {
+   "vinculosMPE": 1752533,
+   "massaMPE": 4339373590,
+   "vinculos": 4935004,
+   "massa": 20209058093
+  },
+  "SP": {
+   "vinculosMPE": 6301245,
+   "massaMPE": 19409743723,
+   "vinculos": 16365074,
+   "massa": 71935526227
+  },
+  "SC": {
+   "vinculosMPE": 1381958,
+   "massaMPE": 4070973774,
+   "vinculos": 2949150,
+   "massa": 11291931994
+  },
+  "RS": {
+   "vinculosMPE": 1549594,
+   "massaMPE": 4371184081,
+   "vinculos": 3366474,
+   "massa": 13044377443
+  },
+  "GO": {
+   "vinculosMPE": 913770,
+   "massaMPE": 2265797662,
+   "vinculos": 2019732,
+   "massa": 6927194263
+  },
+  "DF": {
+   "vinculosMPE": 405493,
+   "massaMPE": 1016484200,
+   "vinculos": 1875233,
+   "massa": 8998030267
+  },
+  "RO": {
+   "vinculosMPE": 195411,
+   "massaMPE": 450489630,
+   "vinculos": 439656,
+   "massa": 1553566795
+  },
+  "AC": {
+   "vinculosMPE": 58209,
+   "massaMPE": 121397267,
+   "vinculos": 195310,
+   "massa": 685429982
+  },
+  "AM": {
+   "vinculosMPE": 219098,
+   "massaMPE": 493896157,
+   "vinculos": 896575,
+   "massa": 3017995078
+  },
+  "RR": {
+   "vinculosMPE": 47494,
+   "massaMPE": 100199875,
+   "vinculos": 159937,
+   "massa": 661350034
+  },
+  "PA": {
+   "vinculosMPE": 502565,
+   "massaMPE": 1147855419,
+   "vinculos": 1591074,
+   "massa": 5333207398
+  },
+  "AP": {
+   "vinculosMPE": 49013,
+   "massaMPE": 103269148,
+   "vinculos": 186449,
+   "massa": 712088803
+  },
+  "TO": {
+   "vinculosMPE": 163464,
+   "massaMPE": 403267579,
+   "vinculos": 442020,
+   "massa": 1443119120
+  },
+  "PI": {
+   "vinculosMPE": 229284,
+   "massaMPE": 467477339,
+   "vinculos": 643554,
+   "massa": 1986543636
+  },
+  "RN": {
+   "vinculosMPE": 297037,
+   "massaMPE": 612868910,
+   "vinculos": 751897,
+   "massa": 2441906166
+  },
+  "PB": {
+   "vinculosMPE": 300186,
+   "massaMPE": 616357313,
+   "vinculos": 914955,
+   "massa": 2778237034
+  },
+  "PE": {
+   "vinculosMPE": 750858,
+   "massaMPE": 1605057999,
+   "vinculos": 2097987,
+   "massa": 6640039074
+  },
+  "AL": {
+   "vinculosMPE": 230315,
+   "massaMPE": 469529987,
+   "vinculos": 718513,
+   "massa": 2094317785
+  },
+  "SE": {
+   "vinculosMPE": 192614,
+   "massaMPE": 392312041,
+   "vinculos": 510658,
+   "massa": 1664087271
+  },
+  "MG": {
+   "vinculosMPE": 2637776,
+   "massaMPE": 6295924108,
+   "vinculos": 6325291,
+   "massa": 20785387052
+  },
+  "ES": {
+   "vinculosMPE": 500249,
+   "massaMPE": 1244324247,
+   "vinculos": 1139024,
+   "massa": 3971643029
+  },
+  "PR": {
+   "vinculosMPE": 1739269,
+   "massaMPE": 4807399811,
+   "vinculos": 3846728,
+   "massa": 14346307275
+  },
+  "MS": {
+   "vinculosMPE": 388280,
+   "massaMPE": 992004232,
+   "vinculos": 861336,
+   "massa": 3249597783
+  },
+  "MT": {
+   "vinculosMPE": 589297,
+   "massaMPE": 1644421108,
+   "vinculos": 1270824,
+   "massa": 4664585452
+  }
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "consulta": "RF · Establishments · drilldown Company Size Sebrae · Registration Status = Ativa (2) · Brasil",
+ "recebido": "2026-11-08",
+ "dados": [
+  {
+   "Porte da empresa SEBRAE ID": 1,
+   "Porte da empresa SEBRAE": "Grande Empresa",
+   "Estabelecimentos": 39028
+  },
+  {
+   "Porte da empresa SEBRAE ID": 2,
+   "Porte da empresa SEBRAE": "Média Empresa",
+   "Estabelecimentos": 181026
+  },
+  {
+   "Porte da empresa SEBRAE ID": 3,
+   "Porte da empresa SEBRAE": "Empresa de Pequeno Porte (EPP)",
+   "Estabelecimentos": 1877095
+  },
+  {
+   "Porte da empresa SEBRAE ID": 4,
+   "Porte da empresa SEBRAE": "Microempresa (ME)",
+   "Estabelecimentos": 9288594
+  },
+  {
+   "Porte da empresa SEBRAE ID": 5,
+   "Porte da empresa SEBRAE": "Micro Empresário Individual (MEI)",
+   "Estabelecimentos": 13816725
+  },
+  {
+   "Porte da empresa SEBRAE ID": 9,
+   "Porte da empresa SEBRAE": "Outros",
+   "Estabelecimentos": 2837460
+  }
+ ]
+}

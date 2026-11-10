@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_2" data-name="Camada 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 163.25 121.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #292a24;
+      }
+
+      .cls-2 {
+        fill: #95a047;
+      }
+
+      .cls-3 {
+        fill: #2a4fda;
+      }
+
+      .cls-4 {
+        fill: #cadf61;
+      }
+
+      .cls-5 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+        stroke-width: .25px;
+      }
+
+      .cls-6 {
+        fill: #0b2574;
+      }
+    </style>
+  </defs>
+  <g id="Camada_1-2" data-name="Camada 1">
+    <g>
+      <polyline class="cls-1" points="0 121.06 1.52 104.28 6.11 0"/>
+      <polygon class="cls-1" points="22.29 78.82 15.34 76.74 162.77 77.3 147.07 78.82 22.29 78.82"/>
+      <rect class="cls-4" x="19.9" y="78.82" width="127.16" height="42.24"/>
+      <polygon class="cls-3" points="129.67 106.95 45.63 106.95 45.63 100.53 45.63 94.11 129.67 94.11 129.67 106.95"/>
+      <line class="cls-5" x1="45.7" y1="100.82" x2="129.6" y2="100.82"/>
+      <line class="cls-5" x1="67.56" y1="94.73" x2="67.56" y2="106.32"/>
+      <line class="cls-5" x1="87.65" y1="95.02" x2="87.65" y2="106.62"/>
+      <line class="cls-5" x1="108.53" y1="94.73" x2="108.53" y2="106.32"/>
+      <polygon class="cls-6" points="99.86 78.82 147.07 50.7 147.07 78.82 99.86 78.82"/>
+      <polygon class="cls-6" points="59.88 78.82 107.09 50.7 107.09 78.82 59.88 78.82"/>
+      <polygon class="cls-6" points="18.91 78.82 66.12 50.7 66.12 78.82 18.91 78.82"/>
+      <polygon class="cls-4" points="0 121.06 6.11 0 18.32 0 24.43 121.13 0 121.06"/>
+      <polygon class="cls-2" points="147.07 78.82 147.07 120.94 163.25 110.95 163.25 77.3 147.07 78.82"/>
+      <polygon class="cls-3" points="66.12 50.7 82.19 65.54 66.12 75.11 66.12 50.7"/>
+      <polygon class="cls-3" points="107.09 50.7 123.15 65.54 107.09 75.11 107.09 50.7"/>
+      <polygon class="cls-3" points="147.12 50.87 163.12 77.32 147.07 78.82 147.12 50.87"/>
+    </g>
+  </g>
+</svg>

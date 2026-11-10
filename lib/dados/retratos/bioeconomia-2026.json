@@ -1,0 +1,48 @@
+{
+ "consulta": "Sebrae_Bioeconomia \u00b7 Municipality \u00d7 Year \u00b7 Score Framework Controlado, Ranking Municipal",
+ "ano": 2026,
+ "atualizadoEm": "2026-11-09",
+ "municipios": 559,
+ "br": {
+  "media": 0.44646332737030414,
+  "n": 559
+ },
+ "uf": {
+  "RO": {
+   "media": 0.4668034038461538,
+   "n": 52
+  },
+  "AC": {
+   "media": 0.44078345454545453,
+   "n": 22
+  },
+  "AM": {
+   "media": 0.4419066290322581,
+   "n": 62
+  },
+  "RR": {
+   "media": 0.44892366666666667,
+   "n": 15
+  },
+  "PA": {
+   "media": 0.4842179930555555,
+   "n": 144
+  },
+  "AP": {
+   "media": 0.4982471875,
+   "n": 16
+  },
+  "TO": {
+   "media": 0.29444969230769236,
+   "n": 39
+  },
+  "MA": {
+   "media": 0.3705399464285714,
+   "n": 112
+  },
+  "MT": {
+   "media": 0.5235623814432989,
+   "n": 97
+  }
+ }
+}

@@ -1,0 +1,204 @@
+{
+ "consulta": "RAIS_workers · Municipality × Aggregated Company Size × Commercial Companies Indicator × Sex · vínculos ativos",
+ "criterio": "empresas mercantis (critério DataSebrae)",
+ "ano": 2025,
+ "atualizadoEm": "2026-11-10",
+ "br": {
+  "vinculosMPE": 20712555,
+  "massaMPE": 52540939585,
+  "vinculos": 41099878,
+  "massa": 131566186740,
+  "mulheresMPE": 8998476
+ },
+ "uf": {
+  "RO": {
+   "vinculosMPE": 165965,
+   "massaMPE": 366712388,
+   "vinculos": 264274,
+   "massa": 643145360,
+   "mulheresMPE": 76358
+  },
+  "AC": {
+   "vinculosMPE": 48558,
+   "massaMPE": 93008345,
+   "vinculos": 93024,
+   "massa": 189008685,
+   "mulheresMPE": 20121
+  },
+  "AM": {
+   "vinculosMPE": 198633,
+   "massaMPE": 426213490,
+   "vinculos": 514791,
+   "massa": 1375955429,
+   "mulheresMPE": 84130
+  },
+  "RR": {
+   "vinculosMPE": 41638,
+   "massaMPE": 80983554,
+   "vinculos": 70092,
+   "massa": 142965353,
+   "mulheresMPE": 18280
+  },
+  "PA": {
+   "vinculosMPE": 436068,
+   "massaMPE": 937405279,
+   "vinculos": 876289,
+   "massa": 2293451679,
+   "mulheresMPE": 176575
+  },
+  "AP": {
+   "vinculosMPE": 44541,
+   "massaMPE": 86298780,
+   "vinculos": 85674,
+   "massa": 182669802,
+   "mulheresMPE": 18290
+  },
+  "TO": {
+   "vinculosMPE": 127948,
+   "massaMPE": 302151805,
+   "vinculos": 195200,
+   "massa": 498495891,
+   "mulheresMPE": 52740
+  },
+  "MA": {
+   "vinculosMPE": 293151,
+   "massaMPE": 594655652,
+   "vinculos": 531251,
+   "massa": 1264158223,
+   "mulheresMPE": 121557
+  },
+  "PI": {
+   "vinculosMPE": 196812,
+   "massaMPE": 366782726,
+   "vinculos": 323422,
+   "massa": 667223180,
+   "mulheresMPE": 79422
+  },
+  "CE": {
+   "vinculosMPE": 582630,
+   "massaMPE": 1122874542,
+   "vinculos": 1227662,
+   "massa": 2757772382,
+   "mulheresMPE": 241498
+  },
+  "RN": {
+   "vinculosMPE": 260056,
+   "massaMPE": 499921935,
+   "vinculos": 484823,
+   "massa": 1030951380,
+   "mulheresMPE": 105822
+  },
+  "PB": {
+   "vinculosMPE": 245430,
+   "massaMPE": 470869004,
+   "vinculos": 475955,
+   "massa": 982222322,
+   "mulheresMPE": 99003
+  },
+  "PE": {
+   "vinculosMPE": 652192,
+   "massaMPE": 1334885755,
+   "vinculos": 1321673,
+   "massa": 3124874412,
+   "mulheresMPE": 266674
+  },
+  "AL": {
+   "vinculosMPE": 195521,
+   "massaMPE": 367542256,
+   "vinculos": 382208,
+   "massa": 811483933,
+   "mulheresMPE": 79822
+  },
+  "SE": {
+   "vinculosMPE": 162716,
+   "massaMPE": 309100205,
+   "vinculos": 298421,
+   "massa": 645876622,
+   "mulheresMPE": 67818
+  },
+  "BA": {
+   "vinculosMPE": 967799,
+   "massaMPE": 1996689515,
+   "vinculos": 1828023,
+   "massa": 4409044252,
+   "mulheresMPE": 400861
+  },
+  "MG": {
+   "vinculosMPE": 2277948,
+   "massaMPE": 5256586629,
+   "vinculos": 4159917,
+   "massa": 11967349330,
+   "mulheresMPE": 1013599
+  },
+  "ES": {
+   "vinculosMPE": 436772,
+   "massaMPE": 1040657197,
+   "vinculos": 808628,
+   "massa": 2302835202,
+   "mulheresMPE": 190933
+  },
+  "RJ": {
+   "vinculosMPE": 1534340,
+   "massaMPE": 3589916133,
+   "vinculos": 3275811,
+   "massa": 10637657032,
+   "mulheresMPE": 686949
+  },
+  "SP": {
+   "vinculosMPE": 5687287,
+   "massaMPE": 16978059162,
+   "vinculos": 12660070,
+   "massa": 51503692987,
+   "mulheresMPE": 2517915
+  },
+  "PR": {
+   "vinculosMPE": 1575174,
+   "massaMPE": 4233255800,
+   "vinculos": 2920085,
+   "massa": 8959928608,
+   "mulheresMPE": 670263
+  },
+  "SC": {
+   "vinculosMPE": 1270203,
+   "massaMPE": 3624615642,
+   "vinculos": 2362806,
+   "massa": 7608066071,
+   "mulheresMPE": 560764
+  },
+  "RS": {
+   "vinculosMPE": 1373243,
+   "massaMPE": 3758176867,
+   "vinculos": 2421269,
+   "massa": 7688811411,
+   "mulheresMPE": 616013
+  },
+  "MS": {
+   "vinculosMPE": 316798,
+   "massaMPE": 778095391,
+   "vinculos": 569555,
+   "massa": 1610498076,
+   "mulheresMPE": 130423
+  },
+  "MT": {
+   "vinculosMPE": 490159,
+   "massaMPE": 1311723105,
+   "vinculos": 820467,
+   "massa": 2454225872,
+   "mulheresMPE": 201811
+  },
+  "GO": {
+   "vinculosMPE": 774307,
+   "massaMPE": 1816655019,
+   "vinculos": 1336879,
+   "massa": 3601320935,
+   "mulheresMPE": 335686
+  },
+  "DF": {
+   "vinculosMPE": 356181,
+   "massaMPE": 793274769,
+   "vinculos": 790217,
+   "massa": 2198765882,
+   "mulheresMPE": 165035
+  }
+ }
+}
