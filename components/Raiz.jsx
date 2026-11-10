@@ -6,7 +6,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import Observatorio from './Observatorio';
 
-const ABRIR_MOBILE_EM_TELA_PEQUENA = false;
+const ABRIR_MOBILE_EM_TELA_PEQUENA = true;
 
 const AppMobile = lazy(() => import('./mobile/AppMobile'));
 
@@ -21,8 +21,7 @@ function escolheuAvancada() {
 function modoAtual() {
   const h = window.location.hash;
   if (h.startsWith('#/m')) return 'mobile';
-  // abrir a versão mobile automaticamente em telas pequenas: desligado por enquanto
-  // (o painel de pré-visualização é estreito e deve mostrar o desktop); a versão mobile abre por #/m
+  // em telas pequenas (celular, painel estreito) abre a versão mobile; a versão avançada continua acessível
   const inicio = h === '' || h === '#' || h === '#/';
   if (ABRIR_MOBILE_EM_TELA_PEQUENA && inicio && window.innerWidth < 768 && !escolheuAvancada()) return 'mobile';
   return 'desktop';
