@@ -192,7 +192,18 @@ export default function MicroPequenas({ base, uf, mun, onBrasil, onUF, onMunicip
   const rotuloEscopo = (e) => (e === 'MUN' ? mun?.nome : mun ? `${uf} (estado)` : nomeUF);
 
   return (
-    <section id="micro-e-pequenas" aria-labelledby="mpe-titulo" className="bg-tema-bg px-4 py-16 sm:px-8 lg:px-12 lg:py-24">
+    <section id="micro-e-pequenas" aria-labelledby="mpe-titulo" className="relative bg-tema-bg px-4 py-16 sm:px-8 lg:px-12 lg:pb-24 lg:pt-10">
+      {/* convite para rolar: o mapa ocupa quase toda a tela, então a seção seguinte "espia" por baixo */}
+      <button
+        type="button"
+        onClick={() => document.getElementById('micro-e-pequenas')?.scrollIntoView({ behavior: 'smooth' })}
+        aria-label="Ver mais: Micro e Pequenas empresas"
+        className="convite-rolar absolute left-1/2 top-0 z-10 hidden h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-lima text-navy shadow-flutuante transition hover:brightness-105 lg:grid"
+      >
+        <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+          <path d="m6 9 6 6 6-6" />
+        </svg>
+      </button>
       <div className="mx-auto max-w-[1240px]">
         <div className="grid gap-6 lg:grid-cols-[1.15fr_1fr] lg:items-end">
           <h2 id="mpe-titulo" className="font-display text-[clamp(40px,5.4vw,76px)] font-extrabold leading-[0.98] tracking-[-0.02em] text-tema-tinta [text-wrap:balance]">

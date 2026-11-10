@@ -346,7 +346,7 @@ export default function Observatorio() {
         <Estudos base={base} />
       ) : (
         <>
-      <div id="territorio" className="grid grid-cols-1 lg:h-[calc(100vh-64px)] lg:min-h-[640px] lg:grid-cols-[440px_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)]">
+      <div id="territorio" className="grid grid-cols-1 lg:h-[calc(100vh-64px-84px)] lg:min-h-[600px] lg:grid-cols-[440px_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)]">
         {/* ====================================================== BARRA LATERAL */}
         <aside className="rolagem relative order-2 min-h-0 overflow-y-auto bg-tema-painel px-6 pb-8 pt-7 lg:order-1">
           <div className="flex items-start justify-between gap-3">

@@ -284,3 +284,15 @@ body {
     transition: none;
   }
 }
+
+/* convite para rolar abaixo do mapa: pulsa devagar 3 vezes e para */
+@keyframes convite-rolar {
+  0%, 100% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, -30%); }
+}
+.convite-rolar {
+  animation: convite-rolar 1.6s ease-in-out 1s 3;
+}
+@media (prefers-reduced-motion: reduce) {
+  .convite-rolar { animation: none; }
+}
