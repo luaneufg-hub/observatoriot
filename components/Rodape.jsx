@@ -89,7 +89,7 @@ function Link({ href, interno, children, className = '' }) {
     <a
       href={href}
       {...(externo ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-      className={`rounded-sm underline-offset-4 transition hover:text-lima hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lima ${className}`}
+      className={`rounded-sm transition hover:text-lima focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lima ${className}`}
     >
       {children}
       {externo && <span className="sr-only"> (abre em nova aba)</span>}
@@ -136,11 +136,11 @@ export default function Rodape() {
           {/* Logos */}
           <div className="col-span-2 flex flex-col items-start gap-7 lg:col-span-1">
             <a href="https://sebrae.com.br/" target="_blank" rel="noopener noreferrer" className="block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lima">
-              <span className="mb-2 block text-[12px] text-[#c3c5ec]">Um projeto</span>
+              <span className="mb-2 block text-[12px] text-[#c3c5ec]">Desenvolvido por</span>
               <LogoSebrae className="h-12 w-auto" title="Sebrae (abre em nova aba)" />
             </a>
             <a href="https://www.datawheel.us/" target="_blank" rel="noopener noreferrer" className="block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lima">
-              <span className="mb-2 block text-[12px] text-[#c3c5ec]">Desenvolvido por</span>
+              <span className="mb-2 block text-[12px] text-[#c3c5ec]">Tecnologia</span>
               <LogoDatawheel className="h-8 w-auto" title="Datawheel (abre em nova aba)" />
             </a>
           </div>
