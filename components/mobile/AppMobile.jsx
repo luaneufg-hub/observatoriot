@@ -10,8 +10,9 @@ import { carregarIGs } from '@/lib/dados/ig';
 import { carregarProgramas } from '@/lib/dados/sebraeTerritorio';
 import { UFS } from '@/lib/dados/ufs';
 import { ATUALIZADO_EM } from '@/lib/dados/indicadores';
-import { perfil, eventos, municipioMaisProximo } from '@/lib/dados/mobile';
-import { Folha, Botao, SeloFicticio, useGuardado } from './ui';
+import { perfil, municipioMaisProximo } from '@/lib/dados/mobile';
+import { eventosComMunicipio, proximos, periodo, localTexto } from '@/lib/dados/calendario';
+import { Folha, Botao, useGuardado } from './ui';
 import { TelaInicio, TelaMPE, TelaTerritorio, TelaComparar } from './TelasDados';
 import { TelaCalendario, TelaBriefing } from './TelasAgenda';
 
@@ -79,7 +80,7 @@ export default function AppMobile() {
 
   const extras = useMemo(() => ({ igs, programas }), [igs, programas]);
   const p = useMemo(() => (base ? perfil(tt.mun ? { uf: tt.uf, mun: tt.mun } : { uf: tt.uf }, base, extras) : null), [tt, base, extras]);
-  const agenda = useMemo(() => eventos(base, tt), [base, tt]);
+  const agenda = useMemo(() => eventosComMunicipio(base), [base]);
 
   const irPara = useCallback((id) => {
     setTela(id);
@@ -169,7 +170,7 @@ export default function AppMobile() {
             </nav>
 
             {menu && <Menu tema={tema} setTema={setTema} irPara={irPara} onFechar={() => setMenu(false)} onSair={() => { try { window.sessionStorage.removeItem('obs-mobile-entrou'); } catch { /* */ } setEntrou(false); setMenu(false); }} />}
-            <Notificacoes aberta={notif} onFechar={() => setNotif(false)} agenda={agenda} nome={p?.nome} irPara={irPara} />
+            <Notificacoes aberta={notif} onFechar={() => setNotif(false)} agenda={agenda} irPara={irPara} />
             <Busca aberta={!!busca} base={base} onFechar={() => setBusca(null)} onEscolher={(nt) => { busca?.(nt); setBusca(null); }} />
           </>
         )}
@@ -247,23 +248,21 @@ function Menu({ tema, setTema, irPara, onFechar, onSair }) {
 }
 
 // ------------------------------------------------------------------ notificações
-function Notificacoes({ aberta, onFechar, agenda, nome, irPara }) {
-  const prox = agenda[0];
+function Notificacoes({ aberta, onFechar, agenda, irPara }) {
+  const [prox] = proximos(1, agenda);
   return (
     <Folha aberta={aberta} onFechar={onFechar} titulo="Notificações">
       <ul className="space-y-3">
-        <li className="rounded-2xl bg-tema-linha/60 p-4">
-          <p className="text-[12px] font-bold uppercase tracking-wide text-[#36BF76]">Dados atualizados</p>
+        <li className="rounded-2xl bg-[var(--tom-verde)] p-4">
+          <p className="text-[12px] font-bold uppercase tracking-wide text-tema-suave">Dados atualizados</p>
           <p className="mt-1 text-[14px] leading-snug text-tema-tinta">RAIS 2025, Novo CAGED e Atendimentos Sebrae 2025 já estão no app ({ATUALIZADO_EM}).</p>
         </li>
         {prox && (
           <li>
-            <button type="button" onClick={() => { onFechar(); irPara('calendario'); }} className="w-full rounded-2xl bg-tema-linha/60 p-4 text-left">
-              <span className="flex items-center gap-2 text-[12px] font-bold uppercase tracking-wide text-[#D81E5B]">
-                Próximo evento <SeloFicticio />
-              </span>
+            <button type="button" onClick={() => { onFechar(); irPara('calendario'); }} className="w-full rounded-2xl bg-[var(--tom-lavanda)] p-4 text-left">
+              <span className="text-[12px] font-bold uppercase tracking-wide text-tema-suave">Próximo evento DITEC</span>
               <span className="mt-1 block text-[14px] leading-snug text-tema-tinta">
-                {prox.titulo}, {prox.data.toLocaleDateString('pt-BR', { day: 'numeric', month: 'long' })}, às {prox.hora}, em {prox.local}{nome ? ` (recorte: ${nome})` : ''}.
+                {prox.nome}: {periodo(prox)}, {localTexto(prox)}.
               </span>
             </button>
           </li>

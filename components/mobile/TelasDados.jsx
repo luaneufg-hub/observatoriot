@@ -10,6 +10,7 @@ import { pctTxt } from '@/lib/dados/comparar';
 import { Acordeao, Botao, CartaoNumero, Chamada, Chips, Folha, TituloTela } from './ui';
 import MapaMini from './MapaMini';
 import { PROGRAMAS } from '@/lib/dados/sebraeTerritorio';
+import { doTerritorio, proximos } from '@/lib/dados/calendario';
 
 const IMG_SETOR = { agro: 'agro', comercio: 'comercio', industria: 'industria', servicos: 'servicos' };
 
@@ -264,7 +265,7 @@ export function TelaTerritorio({ ctx }) {
   if (p.bioma) info.push({ id: 'bioma', tom: 'verde', curtoRot: 'Bioma', icone: 'bioma', valor: p.bioma, rotulo: 'bioma predominante', fonte: 'IBGE · Biomas', sobre: 'Bioma com a maior parte do território.' });
   const cs = cartoes(p, t);
   info.push(cs.find((c) => c.id === 'remuneracao'), cs.find((c) => c.id === 'vinculos'), cs.find((c) => c.id === 'ativas'));
-  const pinos = agenda.slice(0, 12);
+  const pinos = proximos(99, doTerritorio(agenda, t)).filter((e) => e.mun);
 
   return (
     <>

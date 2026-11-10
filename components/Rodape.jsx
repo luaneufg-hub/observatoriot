@@ -21,6 +21,7 @@ const SEBRAE = [
 const OBSERVATORIO = [
   { rotulo: 'Página Brasil', href: '#/', interno: true },
   { rotulo: 'Estudos', href: '#/estudos', interno: true },
+  { rotulo: 'Calendário', href: '#/calendario', interno: true },
   { rotulo: 'Territórios', href: `${OST}/explore?report=Geography` },
   { rotulo: 'Setores', href: `${OST}/explore?report=Industry` },
   { rotulo: 'Data Explorer', href: `${OST}/data-explorer` },

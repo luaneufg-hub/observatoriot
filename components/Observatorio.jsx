@@ -24,6 +24,7 @@ import Estudos from './estudos/Estudos';
 import CorteSecao from './CorteSecao';
 import Rodape from './Rodape';
 import SeletorTema from './SeletorTema';
+import CalendarioDesktop from './calendario/CalendarioDesktop';
 import { carregarIGs, produtoCurto } from '@/lib/dados/ig';
 import { cadeiaBioma } from '@/lib/dados/producao';
 import Seta from './Seta';
@@ -49,7 +50,7 @@ export default function Observatorio() {
     const ler = () => {
       const h = window.location.hash;
       if (!h.startsWith('#/')) return; // âncoras internas (#territorio…) não trocam de página
-      const p = h.startsWith('#/estudos') || h.includes('impulsionarnegocios') ? 'estudos' : 'inicio';
+      const p = h.startsWith('#/estudos') || h.includes('impulsionarnegocios') ? 'estudos' : h.startsWith('#/calendario') ? 'calendario' : 'inicio';
       setPagina(p);
       window.scrollTo(0, 0);
       if (h.includes('impulsionarnegocios')) setTimeout(() => document.getElementById('impulsionar')?.scrollIntoView(), 120);
@@ -325,7 +326,7 @@ export default function Observatorio() {
           {[
             ['Início', '#/', 'inicio'],
             ['Estudos', '#/estudos', 'estudos'],
-            ['Calendário', '#', null],
+            ['Calendário', '#/calendario', 'calendario'],
             ['Documentação', '#', null],
           ].map(([t, h, p]) => (
             <a key={t} href={h} aria-current={p === pagina ? 'page' : undefined} className={`hover:opacity-100 hover:underline ${p === pagina ? 'font-semibold underline decoration-lima decoration-2 underline-offset-[6px]' : 'opacity-90'}`}>
@@ -341,6 +342,8 @@ export default function Observatorio() {
 
       {pagina === 'estudos' ? (
         <Estudos base={base} />
+      ) : pagina === 'calendario' ? (
+        <CalendarioDesktop />
       ) : (
         <>
       <div id="territorio" className="grid grid-cols-1 lg:h-[calc(100vh-64px-84px)] lg:min-h-[600px] lg:grid-cols-[440px_minmax(0,1fr)] lg:grid-rows-[minmax(0,1fr)]">

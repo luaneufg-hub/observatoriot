@@ -2,129 +2,132 @@
 // Calendário de eventos (agenda FICTÍCIA de demonstração) e gerador de briefing georreferenciado.
 import { useMemo, useState } from 'react';
 import Icon from '../Icon';
-import { CATEGORIAS, CATEGORIA_BY_ID, OBJETIVOS, SECOES_BRIEFING, chaveDia, montarBriefing, briefingEmTexto, municipioMaisProximo } from '@/lib/dados/mobile';
-import { Acordeao, Botao, Chips, Folha, SeloFicticio, TituloTela, useGuardado } from './ui';
+import { OBJETIVOS, SECOES_BRIEFING, montarBriefing, briefingEmTexto, municipioMaisProximo } from '@/lib/dados/mobile';
+import { CAT_BY_ID, chaveDia, localTexto, noDia, nomeMes, periodo, proximos, tomCat } from '@/lib/dados/calendario';
+import { UF_BY_SIGLA } from '@/lib/dados/ufs';
+import { Acordeao, Botao, Chips, Folha, TituloTela, useGuardado } from './ui';
 
-const DIAS = ['DOM', 'SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB'];
 
-// ------------------------------------------------------------------ Calendário
+// ------------------------------------------------------------------ Calendário (Calendário Sebrae DITEC 2026)
+const SEM = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
+const SEM_LONGO = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+
 export function TelaCalendario({ ctx }) {
-  const { p, agenda, irPara, setBriefingPara } = ctx;
-  const dias = useMemo(() => {
-    const r = [];
-    const d = new Date();
-    d.setHours(0, 0, 0, 0);
-    for (let i = 0; i < 14; i++) {
-      const x = new Date(d);
-      x.setDate(d.getDate() + i);
-      r.push(x);
-    }
-    return r;
-  }, []);
-  const [dia, setDia] = useState(chaveDia(dias[0]));
-  const [cat, setCat] = useState('todas');
-  const cats = cat === 'todas' ? [] : [cat];
-  const [marcados, setMarcados] = useGuardado('obs-mobile-agenda', []);
+  const { t, setT, agenda, irPara, setBriefingPara } = ctx;
+  const hoje = useMemo(() => new Date(), []);
+  const [mes, setMes] = useState(hoje.getFullYear() === 2026 ? hoje.getMonth() : 0);
+  const [dia, setDia] = useState(hoje.getFullYear() === 2026 ? hoje : new Date(2026, 0, 1));
+  const [escopo, setEscopo] = useState('todos');
   const [ev, setEv] = useState(null);
-  const doDia = agenda.filter((e) => e.dia === dia && (!cats.length || cats.includes(e.cat)));
-  const comEvento = new Set(agenda.map((e) => e.dia));
+  const [marcados, setMarcados] = useGuardado('obs-mobile-agenda-ditec', []);
+  const lista = escopo === 'estado' && t.uf ? agenda.filter((e) => e.uf === t.uf) : agenda;
+
+  const primeiro = new Date(2026, mes, 1);
+  const vazios = primeiro.getDay();
+  const nDias = new Date(2026, mes + 1, 0).getDate();
+  const doDiaSel = lista.filter((e) => noDia(e, dia));
+  const prox = proximos(4, lista, dia);
   const alternarMarca = (id) => setMarcados((m) => (m.includes(id) ? m.filter((x) => x !== id) : [...m, id]));
-  const mes = dias[0].toLocaleDateString('pt-BR', { month: 'long', year: 'numeric' });
+  const escopos = [{ id: 'todos', rotulo: 'Todos os eventos' }, ...(t.uf ? [{ id: 'estado', rotulo: `Em ${UF_BY_SIGLA[t.uf].nome}` }] : []), { id: 'meus', rotulo: 'Vou participar' }];
+  const listaFinal = escopo === 'meus' ? agenda.filter((e) => marcados.includes(e.id)) : null;
 
   return (
     <>
-      <TituloTela apoio={`${p.nome} · ${mes}`}>Próximos eventos</TituloTela>
-      <p className="mb-4 flex items-center gap-2 text-[12px] leading-snug text-tema-suave">
-        <SeloFicticio /> agenda de demonstração, até a ligação com a agenda oficial
-      </p>
-      <div className="mb-4">
-        <Chips itens={[{ id: 'todas', rotulo: 'Todas' }, ...CATEGORIAS]} ativo={cat} onEscolher={setCat} rotulo="Categorias" />
-      </div>
-
-      <div role="tablist" aria-label="Dias" className="sem-barra -mx-5 flex gap-2 overflow-x-auto px-5 pb-1">
-        {dias.map((d) => {
-          const k = chaveDia(d);
-          const sel = k === dia;
-          return (
-            <button
-              key={k}
-              role="tab"
-              aria-selected={sel}
-              aria-label={d.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}
-              onClick={() => setDia(k)}
-              className={`relative flex w-[52px] flex-none flex-col items-center rounded-[16px] py-2.5 ${sel ? 'bg-navy text-white [[data-theme=navy]_&]:bg-lima [[data-theme=navy]_&]:text-navy [[data-theme=escuro]_&]:bg-lima [[data-theme=escuro]_&]:text-[#141414]' : 'bg-tema-card text-tema-tinta'}`}
-            >
-              <span className="text-[10.5px] font-semibold">{DIAS[d.getDay()]}</span>
-              <span className="font-display text-[22px] font-semibold leading-tight">{d.getDate()}</span>
-              {comEvento.has(k) && <span aria-hidden="true" className={`h-1.5 w-1.5 rounded-full ${sel ? 'bg-lima [[data-theme=navy]_&]:bg-navy' : 'bg-[#D81E5B]'}`} />}
+      <section className="rounded-[28px] bg-tema-card p-4" aria-label="Mês">
+        <div className="mb-3 flex items-center justify-between px-1">
+          <p className="text-[15px] text-tema-tinta">
+            <strong className="font-semibold">{dia.getDate()} {nomeMes(dia.getMonth()).slice(0, 3)}., 26</strong> <span className="text-tema-suave">{SEM_LONGO[dia.getDay()]}</span>
+          </p>
+          <div className="flex items-center gap-1">
+            <button type="button" disabled={mes === 0} onClick={() => setMes((m) => m - 1)} aria-label="Mês anterior" className="grid h-9 w-9 place-items-center rounded-full text-tema-tinta disabled:opacity-30">
+              <Icon name="seta-esq" size={18} />
             </button>
-          );
-        })}
+            <span className="min-w-[78px] text-center text-[13px] font-semibold capitalize text-tema-tinta">{nomeMes(mes)}</span>
+            <button type="button" disabled={mes === 11} onClick={() => setMes((m) => m + 1)} aria-label="Próximo mês" className="grid h-9 w-9 place-items-center rounded-full text-tema-tinta disabled:opacity-30">
+              <Icon name="seta-dir" size={18} />
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-7 text-center" role="group" aria-label={`${nomeMes(mes)} de 2026`}>
+          {SEM.map((d, i) => (
+            <span key={i} aria-hidden="true" className="pb-2 text-[12px] text-tema-suave">
+              {d}
+            </span>
+          ))}
+          {Array.from({ length: vazios }).map((_, i) => (
+            <span key={`v${i}`} />
+          ))}
+          {Array.from({ length: nDias }).map((_, i) => {
+            const d = new Date(2026, mes, i + 1);
+            const sel = chaveDia(d) === chaveDia(dia);
+            const ehHoje = chaveDia(d) === chaveDia(hoje);
+            const cats = [...new Set(lista.filter((e) => noDia(e, d)).map((e) => e.categoria))].slice(0, 3);
+            return (
+              <button
+                key={i}
+                type="button"
+                aria-pressed={sel}
+                aria-label={`${d.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}${cats.length ? `, ${cats.length} unidade${cats.length > 1 ? 's' : ''} com eventos` : ''}${ehHoje ? ', hoje' : ''}`}
+                onClick={() => setDia(d)}
+                className="flex h-12 flex-col items-center justify-start gap-1 pt-1"
+              >
+                <span className={`grid h-8 w-8 place-items-center rounded-full text-[14px] tabular-nums ${sel ? 'bg-navy font-semibold text-white [[data-theme=navy]_&]:bg-lima [[data-theme=navy]_&]:text-navy [[data-theme=escuro]_&]:bg-lima [[data-theme=escuro]_&]:text-[#141414]' : ehHoje ? 'font-bold text-tema-tinta ring-1 ring-tema-tinta' : 'text-tema-tinta'}`}>{i + 1}</span>
+                <span className="flex h-1.5 gap-0.5" aria-hidden="true">
+                  {cats.map((c) => (
+                    <span key={c} className="h-1.5 w-1.5 rounded-full" style={{ background: CAT_BY_ID[c].cor }} />
+                  ))}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      <div className="mt-4">
+        <Chips itens={escopos} ativo={escopo} onEscolher={setEscopo} rotulo="Quais eventos" />
       </div>
 
-      <ol className="relative mt-5 space-y-3 before:absolute before:bottom-4 before:left-[15px] before:top-4 before:w-px before:bg-tema-linha">
-        {doDia.length === 0 && <li className="pl-10 text-[14px] text-tema-suave">Nenhum evento neste dia{cats.length ? ' com essas categorias' : ''}.</li>}
-        {doDia.map((e) => {
-          const c = CATEGORIA_BY_ID[e.cat];
-          const marcado = marcados.includes(e.id);
-          return (
-            <li key={e.id} className="relative flex gap-3">
-              <button
-                type="button"
-                role="checkbox"
-                aria-checked={marcado}
-                aria-label={`Vou participar: ${e.titulo}`}
-                onClick={() => alternarMarca(e.id)}
-                className={`relative z-[1] mt-3 grid h-8 w-8 flex-none place-items-center rounded-[10px] border-2 ${marcado ? 'border-[#36BF76] bg-[#36BF76] text-white' : 'border-tema-linha bg-tema-bg text-transparent'}`}
-              >
-                <Icon name="marcado" size={18} />
-              </button>
-              <button type="button" onClick={() => setEv(e)} className="min-w-0 flex-1 rounded-[22px] p-4 text-left" style={{ background: `var(--tom-${c.tom})` }}>
-                <span className="flex items-start justify-between gap-2">
-                  <span className="font-display text-[16px] font-semibold leading-tight text-tema-tinta">{e.titulo}</span>
-                  <span className="flex-none text-[13px] font-semibold tabular-nums text-tema-tinta">{e.hora}</span>
-                </span>
-                <span className="mt-1 block text-[13px] text-tema-suave">{e.local}</span>
-                <span className="mt-1.5 inline-flex items-center gap-1.5 text-[11.5px] text-tema-suave">
-                  <span className="h-2 w-2 rounded-full" style={{ background: c.cor }} />
-                  {c.rotulo}
-                </span>
-              </button>
-            </li>
-          );
-        })}
-      </ol>
+      {listaFinal ? (
+        <ListaEventos titulo="Vou participar" eventos={listaFinal} vazio="Marque os eventos de que vai participar." marcados={marcados} onMarcar={alternarMarca} onAbrir={setEv} />
+      ) : (
+        <>
+          <ListaEventos titulo={doDiaSel.length ? `Eventos em ${dia.getDate()} de ${nomeMes(dia.getMonth())}` : `Nenhum evento em ${dia.getDate()} de ${nomeMes(dia.getMonth())}`} eventos={doDiaSel} marcados={marcados} onMarcar={alternarMarca} onAbrir={setEv} />
+          <ListaEventos titulo="Próximos" eventos={prox.filter((e) => !doDiaSel.includes(e))} vazio="Não há mais eventos em 2026." marcados={marcados} onMarcar={alternarMarca} onAbrir={setEv} />
+        </>
+      )}
+      <p className="mt-4 text-[11px] text-tema-apagado">Fonte: Calendário Sebrae DITEC 2026.</p>
 
-      <Folha aberta={!!ev} onFechar={() => setEv(null)} titulo={ev?.titulo}>
+      <Folha aberta={!!ev} onFechar={() => setEv(null)} titulo={ev?.nome}>
         {ev && (
           <div className="space-y-4">
-            <SeloFicticio />
-            <p className="text-[14px] text-tema-tinta">
-              {ev.data.toLocaleDateString('pt-BR', { weekday: 'long', day: 'numeric', month: 'long' })}, {ev.hora}
-              <br />
-              {ev.local}
-            </p>
-            <p className="text-[15px] leading-relaxed text-tema-tinta">{ev.sobre}</p>
-            <div>
-              <h3 className="mb-2 text-[12px] font-bold uppercase tracking-wide text-tema-suave">Ações possíveis do Sebrae</h3>
-              <ul className="space-y-2">
-                {ev.acoes.map((a) => (
-                  <li key={a} className="flex items-center gap-2 rounded-2xl bg-tema-linha/60 px-3 py-2.5 text-[14px] text-tema-tinta">
-                    <Icon name="sebrae" size={18} /> {a}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <Botao
-              className="w-full"
-              onClick={() => {
-                setBriefingPara(ev);
-                setEv(null);
-                irPara('relatorios');
-              }}
-            >
-              <Icon name="documento2" size={18} /> Gerar briefing para este evento
+            <span className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-[12px] font-semibold text-tema-tinta" style={{ background: tomCat(ev.categoria) }}>
+              <span className="h-2 w-2 rounded-full" style={{ background: CAT_BY_ID[ev.categoria].cor }} />
+              {ev.unidade}
+            </span>
+            <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2.5 text-[15px]">
+              <dt className="text-tema-suave">Quando</dt>
+              <dd className="text-tema-tinta">{periodo(ev)}</dd>
+              <dt className="text-tema-suave">Onde</dt>
+              <dd className="text-tema-tinta">{localTexto(ev)}</dd>
+              <dt className="text-tema-suave">Público</dt>
+              <dd className="text-tema-tinta">{ev.publico || '—'}</dd>
+            </dl>
+            <Botao tipo={marcados.includes(ev.id) ? 'secundario' : 'lima'} className="w-full" onClick={() => alternarMarca(ev.id)}>
+              <Icon name="marcado" size={18} /> {marcados.includes(ev.id) ? 'Marcado: vou participar' : 'Vou participar'}
             </Botao>
+            {ev.uf && (
+              <Botao
+                className="w-full"
+                onClick={() => {
+                  setT(ev.mun ? { uf: ev.uf, mun: ev.mun } : { uf: ev.uf });
+                  setBriefingPara(ev);
+                  setEv(null);
+                  irPara('relatorios');
+                }}
+              >
+                <Icon name="documento2" size={18} /> Briefing de {ev.mun ? ev.mun.nome : UF_BY_SIGLA[ev.uf].nome}
+              </Botao>
+            )}
           </div>
         )}
       </Folha>
@@ -132,11 +135,41 @@ export function TelaCalendario({ ctx }) {
   );
 }
 
+function ListaEventos({ titulo, eventos, vazio, marcados, onMarcar, onAbrir }) {
+  if (!eventos.length && !vazio) return <h2 className="mb-1 mt-5 font-display text-[18px] font-semibold text-tema-tinta">{titulo}</h2>;
+  return (
+    <section className="mt-5">
+      <h2 className="mb-2 font-display text-[18px] font-semibold text-tema-tinta">{titulo}</h2>
+      {!eventos.length && <p className="text-[14px] text-tema-suave">{vazio}</p>}
+      <ul className="space-y-2.5">
+        {eventos.map((e) => {
+          const c = CAT_BY_ID[e.categoria];
+          const m = marcados.includes(e.id);
+          return (
+            <li key={e.id} className="flex items-stretch gap-2">
+              <button type="button" onClick={() => onAbrir(e)} className="min-w-0 flex-1 rounded-[22px] p-4 text-left" style={{ background: tomCat(e.categoria) }}>
+                <span className="text-[12px] text-tema-tinta">{c.curto || c.rotulo}</span>
+                <span className="mt-0.5 block font-display text-[16px] font-semibold leading-snug text-tema-tinta">{e.nome}</span>
+                <span className="mt-2 flex items-center gap-1.5 border-t border-tema-tinta/10 pt-2 text-[12.5px] text-tema-tinta">
+                  <Icon name="calendario" size={16} /> {periodo(e)} · {localTexto(e)}
+                </span>
+              </button>
+              <button type="button" role="checkbox" aria-checked={m} aria-label={`Vou participar: ${e.nome}`} onClick={() => onMarcar(e.id)} className={`grid w-11 flex-none place-items-center rounded-[18px] ${m ? 'bg-[#36BF76] text-white' : 'bg-tema-card text-tema-apagado'}`}>
+                <Icon name="marcado" size={20} />
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
 // ------------------------------------------------------------------ Briefing
 export function TelaBriefing({ ctx }) {
   const { p, t, setT, base, agenda, abrirBusca, briefingPara, setBriefingPara } = ctx;
   const [objetivo, setObjetivo] = useState(briefingPara ? OBJETIVOS[2] : OBJETIVOS[0]);
-  const [pauta, setPauta] = useState(briefingPara ? briefingPara.titulo : '');
+  const [pauta, setPauta] = useState(briefingPara ? briefingPara.nome : '');
   const [secoes, setSecoes] = useState(SECOES_BRIEFING.map((s) => s.id));
   const [doc, setDoc] = useState(null);
   const [aviso, setAviso] = useState('');
@@ -159,9 +192,8 @@ export function TelaBriefing({ ctx }) {
   };
 
   const gerar = () => {
-    const ag = agenda.filter((e) => !t.mun || e.mun.cod === t.mun.cod || e.uf === t.uf);
+    const ag = proximos(99, t.uf ? agenda.filter((e) => e.uf === t.uf) : agenda);
     setDoc(montarBriefing(p, t, { objetivo, secoes, agenda: ag, pauta }));
-    setBriefingPara(null);
     window.scrollTo({ top: 0 });
   };
   const texto = doc ? briefingEmTexto(doc) : '';
@@ -202,7 +234,7 @@ export function TelaBriefing({ ctx }) {
           {doc.secoes.map((s) => (
             <section key={s.titulo} className="mb-4">
               <h2 className="mb-1.5 flex items-center gap-2 font-display text-[16px] font-bold text-tema-tinta">
-                {s.titulo} {s.ficticio && <SeloFicticio />}
+                {s.titulo}
               </h2>
               <ul className="space-y-1.5 text-[14px] leading-relaxed text-tema-tinta">
                 {s.itens.map((i) => (
@@ -286,7 +318,6 @@ export function TelaBriefing({ ctx }) {
                   <label className="flex cursor-pointer items-center gap-3 rounded-2xl px-1 py-2 text-[14px] text-tema-tinta">
                     <input type="checkbox" checked={on} onChange={() => setSecoes((x) => (on ? x.filter((y) => y !== s.id) : [...x, s.id]))} className="h-5 w-5 accent-[#36BF76]" />
                     {s.rotulo}
-                    {s.id === 'agenda' && <SeloFicticio />}
                   </label>
                 </li>
               );

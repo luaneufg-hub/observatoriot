@@ -1,7 +1,7 @@
 'use client';
 // Mapa leve da versão mobile (SVG, d3-geo): estados do Brasil ou municípios de um estado,
 // coloridos pela cobertura do Sebrae (empresas atendidas ÷ pequenos negócios ativos, 2025).
-// Toque num estado ou município para selecioná-lo. Os pinos são os eventos da agenda (fictícia).
+// Toque num estado ou município para selecioná-lo. Os pinos são os próximos eventos do Calendário DITEC.
 import { useEffect, useMemo, useState } from 'react';
 import { geoArea, geoMercator, geoPath } from 'd3-geo';
 import { geo } from '@/lib/geo';
@@ -146,7 +146,7 @@ export default function MapaMini({ t, base, onEscolher, pinos = [] }) {
         </span>
         {pinos.length > 0 && (
           <span className="flex items-center gap-1">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#D81E5B]" /> eventos (fictício)
+            <span className="h-2.5 w-2.5 rounded-full bg-[#D81E5B]" /> próximos eventos DITEC
           </span>
         )}
       </figcaption>
