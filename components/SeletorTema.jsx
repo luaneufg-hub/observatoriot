@@ -13,10 +13,11 @@ const PASSO = 34; // deslocamento do botão entre posições (px)
 
 function Simbolo({ id, cor }) {
   if (id === 'claro')
+    // sol do kit (Ativo_1.svg, nov. 2026)
     return (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={cor} strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="4" fill={cor} />
-        <path d="M12 2.5v2M12 19.5v2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M2.5 12h2M19.5 12h2M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" />
+      <svg width="22" height="22" viewBox="0 0 56.71 56.71" aria-hidden="true">
+        <path fill="#F39D72" d="M45.21,35.24l-5.02-3.95,16.52-3.06-16.63-2.93c-.02-.06-.03-.13-.05-.19l4.92-4.32-6.35.93,4.48-8.8-8.58,4.97s0,0,0,0l.3-6.58-3.5,4.91L28.35,0l-3,16.62s-.05.01-.07.02l.07-.03-4.35-5.04.88,6.36-8.76-4.55,4.9,8.63-6.59-.35,5.17,3.75L0,28.48l16.56,2.92-4.87,3.96,6.37-.69s0,0,0,.01l-4.8,8.61,8.77-4.64s0,0,0,0l-.55,6.57,3.88-5.02,2.98,16.52,3.01-16.65,3.91,4.9-.62-6.28s.06-.04.09-.05l8.48,4.82-4.55-8.76s.02-.03.03-.04l6.52.6ZM28.37,38.5c-5.59,0-10.15-4.55-10.15-10.15s4.55-10.15,10.15-10.15,10.15,4.55,10.15,10.15-4.55,10.15-10.15,10.15Z" />
+        <path fill="#F39D72" d="M28.37,19.21c-5.04,0-9.15,4.1-9.15,9.15s4.1,9.15,9.15,9.15,9.15-4.1,9.15-9.15-4.1-9.15-9.15-9.15Z" />
       </svg>
     );
   if (id === 'navy')
@@ -70,7 +71,7 @@ export default function SeletorTema({ tema, onMudar, className = '' }) {
         {/* botão que desliza */}
         <span
           aria-hidden="true"
-          className="pointer-events-none absolute left-[4px] top-[4px] grid h-[32px] w-[32px] place-items-center rounded-full shadow-[0_2px_6px_rgba(0,0,0,0.25)] transition-[transform,background-color] duration-500 ease-[cubic-bezier(0.34,1.4,0.64,1)] motion-reduce:transition-none"
+          className={`pointer-events-none absolute left-[4px] top-[4px] grid h-[32px] w-[32px] place-items-center rounded-full transition-[transform,background-color,box-shadow] ${m.id === 'escuro' ? 'shadow-[0_2px_6px_rgba(0,0,0,0.25)]' : ''} duration-500 ease-[cubic-bezier(0.34,1.4,0.64,1)] motion-reduce:transition-none`}
           style={{ transform: `translateX(${i * PASSO}px) rotate(${i * 120}deg)`, background: m.botao }}
         >
           <span style={{ transform: `rotate(${-i * 120}deg)` }} className="grid place-items-center transition-transform duration-500">
