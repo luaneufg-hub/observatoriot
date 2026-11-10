@@ -1,6 +1,7 @@
 'use client';
 // Rodapé do site, a partir do modelo do Figma (nov. 2026).
 // Conteúdo: rodapé de observatorio.sebrae.com.br e Carta de Serviços ao Usuário do Sebrae (2023).
+// Endereço: sede atual do Sebrae Nacional (SGAS 605), confirmado pela equipe em nov. 2026.
 import Icon from './Icon';
 import Seta from './Seta';
 import { LogoDatawheel, LogoSebrae } from './LogosParceiros';
@@ -157,9 +158,9 @@ export default function Rodape() {
             </Contato>
             <Contato icone="pino" rotulo="Sebrae Nacional">
               <address className="not-italic">
-                SEPN 515, Bloco C, Loja 32
+                SGAS 605, Conjunto A, Asa Sul
                 <br />
-                Brasília/DF · CEP 70770-900
+                Brasília/DF · CEP 70200-904
               </address>
             </Contato>
           </div>
